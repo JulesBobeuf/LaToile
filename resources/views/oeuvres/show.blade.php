@@ -36,18 +36,14 @@
         <input type="submit" value="OK">
     </form>
 
+
+    <a href="{{route('commentaires.create', ["oeuvre_id" => $oeuvre->id])}}">
+        <button>Ecrire un commentaire</button>
+    </a>
+
     @foreach( $commentaires as $commentaire)
-        <li> Nom : {{$commentaire['titre']}} <br> Texte : {{$commentaire['contenu']}} <br> Note
+        <li> Nom : {{$commentaire['titre']}} <br> Texte : {{$commentaire['contenu']}} <br> User-Id
             : {{$commentaire['user_id']}}
-            @endforeach
+    @endforeach
 
-            <a href="{{route('commentaires.create', ["oeuvre_id" => $oeuvre->id])}}">
-                <button>Ecrire un commentaire</button>
-            </a>
-
-        @foreach( $commentaires as $commentaire)
-            <li> Nom : {{$commentaire['titre']}} <br> Texte : {{$commentaire['contenu']}} <br> User-Id
-                : {{$commentaire['user_id']}}
-        @endforeach
-
-        @endsection
+@endsection
