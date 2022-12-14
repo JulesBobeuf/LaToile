@@ -51,10 +51,9 @@ class OeuvreController extends Controller
             $request,
             [
                 'nom' => 'required',
-                'description' => 'description',
+                'description' => 'required',
                 'coord_x' => 'required',
                 'coord_y' => 'required',
-                'salle_id' => 'required',
                 'auteur' => 'required',
                 'date_creation' => 'required',
                 'style' => 'required',
@@ -68,27 +67,27 @@ class OeuvreController extends Controller
         $oeuvre->description = $request->description;
         $oeuvre->coord_x = $request->coord_x;
         $oeuvre->coord_y = $request->coord_y;
-        $oeuvre->salle_id = $request->salle_id;
+        $oeuvre->salle_id = 4;
         $oeuvre->auteur = $request->auteur;
         $oeuvre->date_creation = $request->date_creation;
         $oeuvre->style = $request->style;
         $oeuvre->valide = $request->valide;
 
-        if ($request->hasFile('media') && $request->file('images')->isValid()) {
+        if ($request->hasFile('media') && $request->file('media')->isValid()) {
             $file = $request->file('media');
-            $base = 'oeuvres';
+            $base = 'oeuvre';
             $now = time();
             $nom = sprintf("%s_%d.%s", $base, $now, $file->extension());
-            $file->storeAs('images/oeuvres/', $nom);
-            $oeuvre->url_media = 'images/oeuvres/' . $nom;
+            $file->storeAs('/storage/images/oeuvres/', $nom);
+            $oeuvre->media_url = 'images/oeuvres/' . $nom;
         }
-        if ($request->hasFile('thumbnail') && $request->file('images')->isValid()) {
+        if ($request->hasFile('thumbnail') && $request->file('thumbnail')->isValid()) {
             $file = $request->file('thumbnail');
-            $base = 'oeuvres';
+            $base = 'thumbnail';
             $now = time();
             $nom = sprintf("%s_%d.%s", $base, $now, $file->extension());
-            $file->storeAs('images/thumbnails/', $nom);
-            $oeuvre->url_media = 'images/thumbnails/' . $nom;
+            $file->storeAs('/storage/images/thumbnails/', $nom);
+            $oeuvre->thumbnail_url = 'images/thumbnails/' . $nom;
         }
         $oeuvre->save();
 

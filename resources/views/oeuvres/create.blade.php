@@ -34,11 +34,11 @@
                    value="{{ old('nom') }}">
         </div>
         <div>
-            {{-- la informations de l'oeuvre  --}}
-            <label for="informations"><strong>informations de l'oeuvre : </strong></label>
-            <textarea name="informations" rows="6"
-                      placeholder="informations..">
-                    {{ old('informations') }}</textarea>
+            {{-- la description de l'oeuvre  --}}
+            <label for="description"><strong>description de l'oeuvre : </strong></label>
+            <textarea name="description" rows="6"
+                      placeholder="description..">
+                    {{ old('description') }}</textarea>
         </div>
         <div>
             {{-- la coord_x de l'oeuvre  --}}
