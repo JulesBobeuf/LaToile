@@ -36,11 +36,6 @@
         </form>
         @endif
     </div>
-    <div>
-        <a href="{{route('users.index')}}">
-            <button class="button is-info">Retour aux salles</button>
-        </a>
-    </div>
 
     <div>
         <x-statut-utilisateur :user="$user"/>
