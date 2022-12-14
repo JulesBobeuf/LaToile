@@ -19,6 +19,17 @@
     <img src="{{url('storage/images/'.$oeuvre->lienOeuvre)}}" height="100" width="100">
 
     <h4> Liste des commentaires de l'oeuvre</h4>
+
+    <form action="{{route('oeuvres.show',$oeuvre->id)}}" method="get">
+        <select name="cat">
+            <option value="All" @if($cat == 'All') selected @endif>-- Filtrage --</option>
+            @foreach($categories as $categorie)
+                <option value="{{$categorie}}" @if($cat == $categorie) selected @endif>{{$categorie}}</option>
+            @endforeach
+        </select>
+        <input type="submit" value="OK">
+    </form>
+
     @foreach( $commentaires as $commentaire)
         <li> Nom : {{$commentaire['titre']}} <br> Texte : {{$commentaire['contenu']}} <br> Note : {{$commentaire['user_id']}}
     @endforeach

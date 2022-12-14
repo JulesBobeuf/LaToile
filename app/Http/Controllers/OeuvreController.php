@@ -108,7 +108,18 @@ class OeuvreController extends Controller
         $oeuvre = Oeuvre::find($id);
         $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortBy('created_at');
         $nbLikes = DB::table('likes')->where('oeuvre_id','=',$oeuvre->id)->count();
-        return view('oeuvres.show', ['oeuvre' => $oeuvre, 'action' => $action, 'commentaires' => $commentaires, 'nbLikes' => $nbLikes]);
+        $categories = array('All','Recent','Ancien');
+        $cat = $request->input('cat', 'All');
+        if ($cat=='Ancien') {
+            $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortByDesc('created_at');
+        }
+        elseif ($cat=='Recent') {
+            $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortBy('created_at');
+        }
+        else {
+            $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortBy('created_at');
+        }
+        return view('oeuvres.show', ['oeuvre' => $oeuvre, 'action' => $action, 'commentaires' => $commentaires, 'nbLikes' => $nbLikes, 'categories' => $categories, 'cat' => $cat]);
     }
 
     /**
