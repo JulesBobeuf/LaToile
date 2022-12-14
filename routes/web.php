@@ -24,3 +24,6 @@ Route::get('/home', function () {
 })->middleware(['auth'])->name('home');
 
 Route::resource('/oeuvres', \App\Http\Controllers\OeuvreController::class);
+
+Route::resource('/commentaires', \App\Http\Controllers\CommentaireController::class) ->except('create');
+Route::get('/commentaires/create/{oeuvre_id}', [\App\Http\Controllers\CommentaireController::class, 'create'])->name('commentaires.create');

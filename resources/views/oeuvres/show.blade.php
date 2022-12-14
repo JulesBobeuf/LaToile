@@ -19,8 +19,12 @@
     <img src="{{url('storage/images/'.$oeuvre->lienOeuvre)}}" height="100" width="100">
 
     <h4> Liste des commentaires de l'oeuvre</h4>
-    @foreach( $commentaires as $commentaire)
-        <li> Nom : {{$commentaire['titre']}} <br> Texte : {{$commentaire['contenu']}} <br> Note : {{$commentaire['user_id']}}
-    @endforeach
 
+    <a href="{{route('commentaires.create', ["oeuvre_id" => $oeuvre->id])}}">
+        <button>Ecrire un commentaire</button>
+    </a>
+
+    @foreach( $commentaires as $commentaire)
+        <li> Nom : {{$commentaire['titre']}} <br> Texte : {{$commentaire['contenu']}} <br> User-Id : {{$commentaire['user_id']}}
+    @endforeach
 @endsection
