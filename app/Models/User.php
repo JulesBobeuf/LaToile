@@ -61,8 +61,15 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'email_verified_at',
         'password',
-        'avatar'
+        'avatar',
+        'admin',
+        'remember_token',
+        'created_at',
+        'updated_at',
+        'two_factor_secret',
+        'two_factor_recovery_codes'
     ];
 
     /**
