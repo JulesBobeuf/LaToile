@@ -7,7 +7,7 @@
                 <button class="button">Oeuvres</button>
             </a>
         @else
-            <li> Bonjour {{ Auth::user()->name }}</li>
+            <li><a href="{{route('users.show',Auth::user()->id)}}">Profil</a></li>
             <li><a href="{{route('oeuvres.index')}}">Oeuvres</a></li>
 
             <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.
