@@ -107,14 +107,11 @@ class OeuvreController extends Controller
         $user = Auth::user();
         $oeuvre = Oeuvre::find($id);
         $nbLikes = DB::table('likes')->where('oeuvre_id','=',$oeuvre->id)->count();
-        $categories = array('All','Recent','Ancien');
+        $categories = array('Recent','Ancien');
         $cat = $request->input('cat', 'All');
         $like = DB::table('likes')->where('oeuvre_id','=',$oeuvre->id)->where('user_id','=',$user->id)->exists();
         if ($cat=='Ancien') {
             $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortByDesc('created_at');
-        }
-        elseif ($cat=='Recent') {
-            $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortBy('created_at',);
         }
         else {
             $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortBy('created_at');
