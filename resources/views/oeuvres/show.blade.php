@@ -12,14 +12,17 @@
         <hr class="mt-2 mb-2">
     </div>
     <div>
-    <li> Nom : {{$oeuvre['nom']}} <br> media_url : {{$oeuvre['media_url']}} <br> thumbnail_url : {{$oeuvre['thumbnail_url']}} <br> description : {{$oeuvre['description']}}
-        <br> coord_x : {{$oeuvre['coord_x']}} <br> coord_y : {{$oeuvre['coord_y']}} <br> salle_id : {{$oeuvre['salle_id']}} <br> auteur : {{$oeuvre['auteur']}}
-        <br> date_creation : {{$oeuvre['date_creation']}}  <br> style : {{$oeuvre['style']}}  <br> valide : {{$oeuvre['valide']}}  <br> likes : {{$nbLikes}} <br>
+        <li> Nom : {{$oeuvre['nom']}} <br> media_url : {{$oeuvre['media_url']}} <br> thumbnail_url
+            : {{$oeuvre['thumbnail_url']}} <br> description : {{$oeuvre['description']}}
+            <br> coord_x : {{$oeuvre['coord_x']}} <br> coord_y : {{$oeuvre['coord_y']}} <br> salle_id
+            : {{$oeuvre['salle_id']}} <br> auteur : {{$oeuvre['auteur']}}
+            <br> date_creation : {{$oeuvre['date_creation']}} <br> style : {{$oeuvre['style']}} <br> valide
+            : {{$oeuvre['valide']}} <br> likes : {{$nbLikes}} <br>
     </div>
     <p> media </p>
-        <img src=" {{asset("/storage/".$oeuvre->media_url)}}" height="100" width="100">
+    <img src=" {{asset("/storage/".$oeuvre->media_url)}}" height="100" width="100">
     <p> thumbnail </p>
-        <img src="{{asset("/storage/".$oeuvre->thumbnail_url)}}" height="100" width="100">
+    <img src="{{asset("/storage/".$oeuvre->thumbnail_url)}}" height="100" width="100">
 
     <h4> Liste des commentaires de l'oeuvre</h4>
 
@@ -34,7 +37,17 @@
     </form>
 
     @foreach( $commentaires as $commentaire)
-        <li> Nom : {{$commentaire['titre']}} <br> Texte : {{$commentaire['contenu']}} <br> Note : {{$commentaire['user_id']}}
-    @endforeach
+        <li> Nom : {{$commentaire['titre']}} <br> Texte : {{$commentaire['contenu']}} <br> Note
+            : {{$commentaire['user_id']}}
+            @endforeach
 
-@endsection
+            <a href="{{route('commentaires.create', ["oeuvre_id" => $oeuvre->id])}}">
+                <button>Ecrire un commentaire</button>
+            </a>
+
+        @foreach( $commentaires as $commentaire)
+            <li> Nom : {{$commentaire['titre']}} <br> Texte : {{$commentaire['contenu']}} <br> User-Id
+                : {{$commentaire['user_id']}}
+        @endforeach
+
+        @endsection
