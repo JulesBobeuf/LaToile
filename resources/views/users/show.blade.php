@@ -1,1 +1,34 @@
-<?php
+@extends('layouts.app')
+
+@section('title', 'Une salle')
+
+@section('content')
+
+    <div class="text-center" style="margin-top: 2rem">
+        @if($action == 'delete')
+            <h3 class="title is-3 is-uppercase has-text-danger has-text-centered">Suppression d'une salle</h3>
+        @else
+            <h3 class="title is-3 has-text-centered">Affichage d'une salle</h3>
+        @endif
+        <hr>
+    </div>
+
+    <div>
+        {{-- Le nom de l'utilisateur --}}
+        <p><strong>Nom : </strong>{{$user->name}}</p>
+    </div>
+    <div>
+        {{-- l'email --}}
+        <p><strong>Email : </strong>{{$user->email}}</p>
+    </div>
+    <div>
+        {{-- l'avatar --}}
+        <p><strong>Description : </strong>{{$user->avatar}} / 5</p>
+    </div>
+            <div>
+                <a href="{{route('users.index')}}">
+                    <button class="button is-info">Retour aux salles</button>
+                </a>
+            </div>
+
+        @endsection
