@@ -8,7 +8,7 @@
         @if($action == 'delete')
             <h3 class="title is-3 is-uppercase has-text-danger has-text-centered">Suppression d'une salle</h3>
         @else
-            <h3 class="title is-3 has-text-centered">Affichage d'une salle</h3>
+            <h3 class="title is-3 has-text-centered">Affichage du profil</h3>
         @endif
         <hr>
     </div>
@@ -23,12 +23,19 @@
     </div>
     <div>
         {{-- l'avatar --}}
-        <p><strong>Description : </strong>{{$user->avatar}} / 5</p>
+        <p><strong>Avatar : </strong>{{$user->avatar}} / 5</p>
     </div>
-            <div>
-                <a href="{{route('users.index')}}">
-                    <button class="button is-info">Retour aux salles</button>
-                </a>
-            </div>
 
-        @endsection
+    <div>
+        <x-statut-utilisateur :user="$user"/>
+    </div>
+
+    <div>
+        <a href="{{route('users.index')}}">
+            <button>Retour aux salles</button>
+        </a>
+
+    </div>
+
+
+@endsection
