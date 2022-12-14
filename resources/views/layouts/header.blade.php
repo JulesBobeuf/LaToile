@@ -1,11 +1,13 @@
 <nav>
+    
     <ul>
+        
         @guest
-            <li><a href="{{ route('login') }}">Login</a></li>
-            <li><a href="{{ route('register') }}">Register</a></li>
-            <a href="{{ route('oeuvres.index') }}">
-                <button class="button">Oeuvres</button>
-            </a>
+        <div class="logo">
+            <img src="http://localhost:8000/storage/images/images/logo.PNG">
+            </div>
+            <li><a href="{{ route('login') }}">Connecte-toi</a></li>
+            <li><a href="{{ route('register') }}">Inscris-toi</a></li>
         @else
             <li> Bonjour {{ Auth::user()->name }}</li>
             @if (Auth::user())

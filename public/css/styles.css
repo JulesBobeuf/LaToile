@@ -34,8 +34,6 @@ html{
         display: flex;
         justify-content: space-between;
         padding: 0vw 12vw;
-      
-        -webkit-perspective: 800;
       }
       .porte{
         background-color: black;
