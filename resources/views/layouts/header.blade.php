@@ -8,9 +8,7 @@
             </a>
         @else
             <li> Bonjour {{ Auth::user()->name }}</li>
-            @if (Auth::user())
-                <li><a href="#">Des liens spécifiques pour utilisateurs connectés..</a></li>
-            @endif
+            <li><a href="{{route('oeuvres.index')}}">Oeuvres</a></li>
 
             <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.
           getElementById('logout-form').submit();">

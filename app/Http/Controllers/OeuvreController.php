@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Commentaire;
 use App\Models\Oeuvre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
@@ -50,13 +51,10 @@ class OeuvreController extends Controller
             $request,
             [
                 'nom' => 'required',
-                'media_url' => 'required',
-                'thumbnail_url' => 'required',
-                'description' => 'description',
+                'description' => 'required',
                 'coord_x' => 'required',
                 'coord_y' => 'required',
-                'salle_id' => 'required',
-                'auteur_id' => 'required',
+                'auteur' => 'required',
                 'date_creation' => 'required',
                 'style' => 'required',
                 'valide' => 'required',
@@ -66,27 +64,31 @@ class OeuvreController extends Controller
         $oeuvre = new Oeuvre;
 
         $oeuvre->nom = $request->nom;
-        $oeuvre->media_url = $request->media_url;
-        $oeuvre->thumbnail_url = $request->thumbnail_url;
         $oeuvre->description = $request->description;
         $oeuvre->coord_x = $request->coord_x;
         $oeuvre->coord_y = $request->coord_y;
-        $oeuvre->salle_id = $request->salle_id;
-        $oeuvre->auteur_id = $request->auteur;
+        $oeuvre->salle_id = 4;
+        $oeuvre->auteur = $request->auteur;
         $oeuvre->date_creation = $request->date_creation;
         $oeuvre->style = $request->style;
         $oeuvre->valide = $request->valide;
 
-        /*
-        if ($request->hasFile('images') && $request->file('images')->isValid()) {
-            $file = $request->file('images');
-            $base = 'oeuvres';
+        if ($request->hasFile('media') && $request->file('media')->isValid()) {
+            $file = $request->file('media');
+            $base = 'oeuvre';
             $now = time();
             $nom = sprintf("%s_%d.%s", $base, $now, $file->extension());
-            $file->storeAs('images', $nom);
-            $oeuvre->url_media = 'images/' . $nom;
+            $file->storeAs('images/oeuvres/', $nom);
+            $oeuvre->media_url = 'images/oeuvres/' . $nom;
         }
-        */
+        if ($request->hasFile('thumbnail') && $request->file('thumbnail')->isValid()) {
+            $file = $request->file('thumbnail');
+            $base = 'thumbnail';
+            $now = time();
+            $nom = sprintf("%s_%d.%s", $base, $now, $file->extension());
+            $file->storeAs('images/thumbnails/', $nom);
+            $oeuvre->thumbnail_url = 'images/thumbnails/' . $nom;
+        }
         $oeuvre->save();
 
         return redirect()->route('oeuvres.index')
@@ -104,8 +106,19 @@ class OeuvreController extends Controller
         $action = $request->query('action', 'show');
         $oeuvre = Oeuvre::find($id);
         $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortBy('created_at');
-
-        return view('oeuvres.show', ['oeuvre' => $oeuvre, 'action' => $action, 'commentaires' => $commentaires]);
+        $nbLikes = DB::table('likes')->where('oeuvre_id','=',$oeuvre->id)->count();
+        $categories = array('All','Recent','Ancien');
+        $cat = $request->input('cat', 'All');
+        if ($cat=='Ancien') {
+            $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortByDesc('created_at');
+        }
+        elseif ($cat=='Recent') {
+            $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortBy('created_at');
+        }
+        else {
+            $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortBy('created_at');
+        }
+        return view('oeuvres.show', ['oeuvre' => $oeuvre, 'action' => $action, 'commentaires' => $commentaires, 'nbLikes' => $nbLikes, 'categories' => $categories, 'cat' => $cat]);
     }
 
     /**
