@@ -26,3 +26,5 @@ Route::get('/home', function () {
 
 Route::resource('/salles', \App\Http\Controllers\SalleController::class);
 Route::resource('/oeuvres', \App\Http\Controllers\OeuvreController::class);
+Route::post('/like/{id}', [\App\Http\Controllers\LikeController::class,'store'])->name('like');
+Route::post('/dislike/{id}', [\App\Http\Controllers\LikeController::class,'destroy'])->name('dislike');
