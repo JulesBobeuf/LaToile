@@ -78,7 +78,7 @@ class OeuvreController extends Controller
             $base = 'oeuvre';
             $now = time();
             $nom = sprintf("%s_%d.%s", $base, $now, $file->extension());
-            $file->storeAs('/storage/images/oeuvres/', $nom);
+            $file->storeAs('images/oeuvres/', $nom);
             $oeuvre->media_url = 'images/oeuvres/' . $nom;
         }
         if ($request->hasFile('thumbnail') && $request->file('thumbnail')->isValid()) {
@@ -86,7 +86,7 @@ class OeuvreController extends Controller
             $base = 'thumbnail';
             $now = time();
             $nom = sprintf("%s_%d.%s", $base, $now, $file->extension());
-            $file->storeAs('/storage/images/thumbnails/', $nom);
+            $file->storeAs('images/thumbnails/', $nom);
             $oeuvre->thumbnail_url = 'images/thumbnails/' . $nom;
         }
         $oeuvre->save();
