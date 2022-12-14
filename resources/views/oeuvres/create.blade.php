@@ -1,8 +1,8 @@
-@extends('layout.master')
+@extends('layouts.app')
 
-@section('title', 'Liste des Oeuvres')
+@section('title', 'Création des Oeuvres')
 
-@section('main')
+@section('content')
     {{--
        messages d'erreurs dans la saisie du formulaire.
     --}}
@@ -21,7 +21,7 @@
          la fonction 'route' utilise un nom de route
       --}}
 
-    <form action="{{route('oeuvre.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('oeuvres.store')}}" method="POST" enctype="multipart/form-data">
         {!! csrf_field() !!}
         <div class="text-center" style="margin-top: 2rem">
             <h3>Création d'une oeuvre</h3>
