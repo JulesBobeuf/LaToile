@@ -17,8 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $coord_x
  * @property int $coord_y
  * @property int $salle_id
- * @property int $auteur_id
- * @property-read \App\Models\Auteur $auteur
+ * @property string $auteur
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Commentaire[] $commentaires
  * @property-read int|null $commentaires_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $likes
