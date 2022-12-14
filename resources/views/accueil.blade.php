@@ -1,43 +1,15 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+@extends('layouts.app')
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+@section('title', 'La toile - Accueil')
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+@section('content')
+    <h1>La toile</h1>
 
-    <!-- Scripts -->
-    @vite(['resources/scss/app.scss','resources/css/app.css','resources/js/app.js'])
-</head>
-<body>
-<div class="container">
-    <nav>
-        <ul>
-            @guest
-                <li><a href="{{ route('login') }}">Login</a></li>
-                <li><a href="{{ route('register') }}">Register</a></li>
-            @else
-                <li> Bonjour {{ Auth::user()->name }}</li> @if (Auth::user())
+    <p id="description_exposition">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut imperdiet diam eu leo blandit congue. Ut ut nulla vitae mi gravida scelerisque. Fusce eget orci aliquet, luctus dolor euismod, ultrices justo. Nullam bibendum hendrerit augue, non hendrerit justo pellentesque quis. Nunc non sem varius, ultricies augue sit amet, bibendum ligula.
+    </p>
 
-                    <li><a href="#">Des liens spécifiques pour utilisateurs connectés..</a></li>
-                @endif
-                <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.
-          getElementById('logout-form').submit();">
-                        Logout
-                    </a></li>
-                <form id="logout-form" action="{{ route('logout') }}"
-                      method="POST" style="display: none;"> {{ csrf_field() }}
-                </form>
-            @endguest  </ul>
-    </nav>
-    <div class="illustration">
-        <img class="oeuvre" src="{{asset('storage/images/oeuvres/oeuvre-5.png')}}" alt="">
-    </div>
-    <div class="welcome">Bienvenue au musée virtuel !</div>
-</div>
-</body>
-</html>
+    <a href="#">Salle n°1</a>
+
+    <a href="#">INTERVIEW</a>
+@endsection
