@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-    use App\Models\Oeuvre;
-    use App\Models\Salle;
-    use Illuminate\Auth\Access\Gate;
-    use Illuminate\Http\Request;
-    use Illuminate\Support\Facades\DB;
-    use Illuminate\Support\Facades\Log;
-    use Illuminate\Support\Facades\Storage;
+use App\Models\Commentaire;
+use App\Models\Oeuvre;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class OeuvreController extends Controller
 {
@@ -17,14 +15,19 @@ class OeuvreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {
+    public function index(Request $request) {
+        $categories = array('All','Recent');
         $cat = $request->input('cat', 'All');
         if ($cat != 'All')
             $oeuvres = Oeuvre::where('type', $cat)->get();
         else
             $oeuvres = Oeuvre::all();
-        return view('oeuvres.index', ['oeuvres' => $oeuvres, 'cat' => $cat]);
+
+        if ($cat== "Recent") {
+            $oeuvres = Oeuvre::all()->sortBy('dateInscription')->take(5);
+        }
+
+        return view('oeuvres.index', ['oeuvres' => $oeuvres]);
     }
 
     /**
@@ -32,8 +35,7 @@ class OeuvreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         return view('oeuvres.create');
     }
 
@@ -43,39 +45,39 @@ class OeuvreController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $this->validate(
             $request,
             [
                 'nom' => 'required',
                 'media_url' => 'required',
                 'thumbnail_url' => 'required',
-                'informations' => 'required',
+                'description' => 'description',
                 'coord_x' => 'required',
                 'coord_y' => 'required',
-                'auteur' => 'required',
+                'salle_id' => 'required',
+                'auteur_id' => 'required',
+                'date_creation' => 'required',
+                'style' => 'required',
+                'valide' => 'required',
             ]
         );
 
         $oeuvre = new Oeuvre;
 
         $oeuvre->nom = $request->nom;
-        $oeuvre->media_url = $request->descriptionOeuvre;
+        $oeuvre->media_url = $request->media_url;
         $oeuvre->thumbnail_url = $request->thumbnail_url;
-        $oeuvre->description = $request->informations;
+        $oeuvre->description = $request->description;
         $oeuvre->coord_x = $request->coord_x;
         $oeuvre->coord_y = $request->coord_y;
+        $oeuvre->salle_id = $request->salle_id;
         $oeuvre->auteur_id = $request->auteur;
-        $oeuvre->date_creation = date("Y-m-d h:i:s");
+        $oeuvre->date_creation = $request->date_creation;
         $oeuvre->style = $request->style;
         $oeuvre->valide = $request->valide;
 
-        $salle = new Salle();
-
-        $oeuvre->salle_id = $salle->salle->id;
-
-        $nom = "Pas de nom dans oeuvres controller";
+        /*
         if ($request->hasFile('images') && $request->file('images')->isValid()) {
             $file = $request->file('images');
             $base = 'oeuvres';
@@ -84,11 +86,12 @@ class OeuvreController extends Controller
             $file->storeAs('images', $nom);
             $oeuvre->url_media = 'images/' . $nom;
         }
+        */
         $oeuvre->save();
 
         return redirect()->route('oeuvres.index')
             ->with('type', 'primary')
-            ->with('msg', 'oeuvres ajoutée avec succès' . $nom);
+            ->with('msg', 'oeuvres ajoutée avec succès' . $oeuvre->nom);
     }
 
     /**
@@ -97,24 +100,12 @@ class OeuvreController extends Controller
      * @param \App\Models\Oeuvre $oeuvres
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
-    {
+    public function show(Request $request, $id) {
         $action = $request->query('action', 'show');
         $oeuvre = Oeuvre::find($id);
+        $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortBy('created_at');
 
-        return view('oeuvres.show', ['oeuvre' => $oeuvre, 'action' => $action]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\Oeuvre $oeuvres
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $oeuvre = Oeuvre::find($id);
-        return view('oeuvres.edit', ['oeuvres' => $oeuvre]);
+        return view('oeuvres.show', ['oeuvre' => $oeuvre, 'action' => $action, 'commentaires' => $commentaires]);
     }
 
     /**
@@ -124,32 +115,21 @@ class OeuvreController extends Controller
      * @param \App\Models\Oeuvre $oeuvres
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         $oeuvre = Oeuvre::find($id);
         $this->validate(
             $request,
             [
-                'nom' => 'required',
-                'media_url' => 'required',
-                'thumbnail_url' => 'required',
-                'informations' => 'required',
-                'coord_x' => 'required',
-                'coord_y' => 'required',
-                'auteur' => 'required',
+                'nomOeuvre' => 'required',
+                'descriptionOeuvre' => 'required',
+                'dateInscription' => 'required',
+                'lienOeuvre' => 'required',
             ]
         );
-
-        $oeuvre->nom = $request->nom;
-        $oeuvre->media_url = $request->descriptionOeuvre;
-        $oeuvre->thumbnail_url = $request->thumbnail_url;
-        $oeuvre->description = $request->informations;
-        $oeuvre->coord_x = $request->coord_x;
-        $oeuvre->coord_y = $request->coord_y;
-        $oeuvre->auteur_id = $request->auteur;
-        $oeuvre->date_creation = date("Y-m-d h:i:s");
-        $oeuvre->style = $request->style;
-        $oeuvre->valide = $request->valide;
+        $oeuvre->nomOeuvre = $request->nomOeuvre;
+        $oeuvre->descriptionOeuvre = $request->descriptionOeuvre;
+        $oeuvre->dateInscription = $request->dateInscription;
+        $oeuvre->lienOeuvre = $request->lienOeuvre;
         $oeuvre->save();
         return redirect()->route('oeuvres.index');
     }
@@ -160,16 +140,21 @@ class OeuvreController extends Controller
      * @param \App\Models\Oeuvre $oeuvres
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
-    {
+    public function destroy(Request $request, $id) {
         $oeuvre = Oeuvre::find($id);
+        if (Gate::denies('delete-oeuvres', $oeuvre)) {
+            return redirect()->route('oeuvres.show',
+                ['titre' => 'Affichage d\'une oeuvres', 'oeuvr' => $oeuvre->id, 'action' => 'show'])
+                ->with('type', 'error')
+                ->with('msg', 'Impossible de supprimer l\'oeuvres');
+        }
+
         $oeuvre->delete();
         return redirect()->route('oeuvres.index');
     }
 
 
-    public function upload(Request $request, $id)
-    {
+    public function upload(Request $request, $id) {
         $oeuvre = Oeuvre::findOrFail($id);
         if ($request->hasFile('images') && $request->file('images')->isValid()) {
             $file = $request->file('images');
@@ -199,3 +184,4 @@ class OeuvreController extends Controller
     }
 
 }
+
