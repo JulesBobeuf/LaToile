@@ -53,10 +53,6 @@ class Oeuvre extends Model {
         return $this->belongsToMany(User::class, 'likes');
     }
 
-    public function auteur() {
-        return $this->belongsTo(Auteur::class);
-    }
-
     public function commentaires() {
         return $this->hasMany(Commentaire::class);
     }
