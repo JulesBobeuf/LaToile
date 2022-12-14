@@ -1,4 +1,4 @@
-## Musée virtuel
+## Musée virtuel.
 
 ## Version initiale
 
