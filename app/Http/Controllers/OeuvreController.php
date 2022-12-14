@@ -104,12 +104,12 @@ class OeuvreController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $id) {
-        $user = Auth::user();
+        $user = Auth::id();
         $oeuvre = Oeuvre::find($id);
         $nbLikes = DB::table('likes')->where('oeuvre_id','=',$oeuvre->id)->count();
         $categories = array('Recent','Ancien');
         $cat = $request->input('cat', 'All');
-        $like = DB::table('likes')->where('oeuvre_id','=',$oeuvre->id)->where('user_id','=',$user->id)->exists();
+        $like = DB::table('likes')->where('oeuvre_id','=',$oeuvre->id)->where('user_id','=',$user)->exists();
         if ($cat=='Ancien') {
             $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortByDesc('created_at');
         }
