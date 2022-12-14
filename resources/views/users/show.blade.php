@@ -25,10 +25,17 @@
         {{-- l'avatar --}}
         <p><strong>Avatar : </strong>{{$user->avatar}} / 5</p>
     </div>
-            <div>
-                <a href="{{route('users.index')}}">
-                    <button class="button is-info">Retour aux salles</button>
-                </a>
-            </div>
 
-        @endsection
+    <div>
+        <x-statut-utilisateur :user="$user"/>
+    </div>
+
+    <div>
+        <a href="{{route('users.index')}}">
+            <button>Retour aux salles</button>
+        </a>
+
+    </div>
+
+
+@endsection
