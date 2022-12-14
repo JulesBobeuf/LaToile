@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
-class OeuvreController extends Controller
+class SalleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +24,7 @@ class OeuvreController extends Controller
             $salles = Salle::where('type', $cat)->get();
         else
             $salles = Salle::all();
-        return view('oeuvres.index', ['salles' => $salles, 'cat' => $cat]);
+        return view('salles.index', ['salles' => $salles, 'cat' => $cat]);
     }
 
     /**
