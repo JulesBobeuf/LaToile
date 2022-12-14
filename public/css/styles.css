@@ -1,0 +1,144 @@
+
+/* GENERAL */
+html{
+    scroll-behavior: smooth;
+  }
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 62.5%;
+    /* background-color: #0d0f2c; */
+    background: rgb(171,179,185);
+    background: radial-gradient(circle, rgba(171,179,185,1) 12%, rgba(1,1,1,1) 82%);  }
+  .logo>a>img{
+    width: 10%;
+  }
+
+  
+  /* Desktop responsive  */
+  @media(min-width:768px){
+
+    .background{
+        position: relative;
+        height: 40vw;
+        width: 100%;
+        background-image: repeating-linear-gradient(-26deg, rgba(255,255,255, 0.25), rgba(255,255,255, 0.25) 2px, transparent 3px, transparent 7px);
+        background-size: 6px 8px;
+      }
+      .portes{
+        display: flex;
+        justify-content: space-between;
+        padding: 0vw 12vw;
+      
+        -webkit-perspective: 800;
+      }
+      .porte{
+        background-color: black;
+        position: relative;
+        bottom: 0%;
+        height: 30vw;
+        width: 10vw;
+      }
+      .portemilieu{
+        margin-top: 4vw;
+        background-color: black;
+        position: relative;
+        bottom: 0%;
+        height: 22vw;
+        width: 10vw;
+      }
+      #porte1{
+        transform: perspective(400px) rotateY(20deg);
+      }
+      #porte2{
+        transform: perspective(400px) rotateY(10deg);
+      }
+      #porte3{
+        transform: perspective(400px) rotateY(-10deg);
+      }
+      #porte4{
+        transform: perspective(400px) rotateY(-20deg);
+      }
+  
+    /* menu login  */
+    ul{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+  }
+  
+  /* Mobile responsive */
+  @media(max-width:768px){
+  
+  }
+  
+
+  /* Responsive burger menu */
+  li{
+    list-style: none;
+  }
+  .navbar a{
+    color: #fefadd;
+    text-decoration: none;
+    font-size: 2vw;
+  }
+  .navbar{
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw 9vw 2vw 4vw;
+  }
+  .nav-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+  }
+  .nav-branding{
+    font-size: 2rem;
+  }
+  .nav-link{
+    transition: 0.7s ease;
+  }
+  .nav-link:hover{
+    color: #381c79;
+  }
+  .hamburger{
+    display: none;
+    cursor: pointer;
+  }
+  .bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #fefadd;
+  }
+  
+  
+  
+  
+  
+  /* mentions légales */
+  .mentions{
+    z-index: 5;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    bottom: 2%;
+    justify-content: center;
+      align-items: center;
+      color:#fefadd
+  }
+  .mentions.active{
+    display: none;
+  }

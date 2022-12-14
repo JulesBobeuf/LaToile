@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!--Styles-->
+    <link rel="stylesheet" href="/css/styles.css">
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
@@ -34,10 +37,48 @@
                 </form>
             @endguest  </ul>
     </nav>
-    <div class="illustration">
+
+    <!-- <div class="illustration">
         <img class="oeuvre" src="{{asset('storage/images/oeuvres/oeuvre-5.png')}}" alt="">
-    </div>
+    </div> -->
+
     <div class="welcome">Bienvenue au musée virtuel !</div>
+
+
+</div>
+
+
+<div class="background">
+    <div class="portes">
+       <a class="porte" id="porte1" href="/salle1">
+      <div  ></div>
+      </a>
+
+       <a class="portemilieu" id="porte2" href="/salle1">
+      <div  ></div>
+      </a>
+
+       <a class="portemilieu" id="porte3" href="/salle1">
+      <div  ></div>
+      </a>
+
+       <a class="porte" id="porte4" href="/salle1">
+      <div ></div>
+      </a>
+    </div>
+</div>
+
+
+</div>
+</div>
+
+<!-- overlay -->
+<div class="overlay"></div>
+
+<div class="mentions">
+  <a href="mentions">mentions légales</a>
+</div>
+
 </div>
 </body>
 </html>
