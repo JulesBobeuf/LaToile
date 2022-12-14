@@ -34,6 +34,14 @@ use Illuminate\Database\Eloquent\Model;
 class Salle extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nom' => 'required',
+        'theme' => 'required',
+        'description' => 'required',
+        'plan_url' => 'required',
+        'entree' => 'required',
+        'editable' => 'required',
+    ];
 
     public $timestamps = false;
 
