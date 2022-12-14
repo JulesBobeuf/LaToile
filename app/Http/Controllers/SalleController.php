@@ -92,8 +92,8 @@ class SalleController extends Controller
     {
         $action = $request->query('action', 'show');
         $salle = Salle::find($id);
-
-        return view('salles.show', ['salle' => $salle, 'action' => $action]);
+        $oeuvres = Oeuvre::all()->where('salle_id','=',$salle->id);
+        return view('salles.show', ['salle' => $salle, 'action' => $action,'oeuvres' => $oeuvres]);
     }
 
     /**

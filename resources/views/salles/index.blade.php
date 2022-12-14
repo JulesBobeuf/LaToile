@@ -1,11 +1,9 @@
-@extends('layout.app')
+@extends('layouts.app')
 
 @section('title', 'Liste de salles')
 
 @section('content')
     <h2 class="title">La liste des salles</h2>
-
-    <h4 class="title is-4">Filtrage par catégorie</h4>
 
     <form action="{{route('salles.index')}}" method="get">
         <input type="submit" value="OK">
@@ -16,7 +14,7 @@
             @foreach($salles as $salle)
                 <li>Theme : {{$salle['theme']}}</li>
                 <a href="{{route('salles.show',$salle->id)}}">
-                    <button class="button">Afficher ce commentaire</button>
+                    <button class="button">Afficher cette salle</button>
                 </a>
             @endforeach
         </ul>
