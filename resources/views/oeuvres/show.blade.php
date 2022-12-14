@@ -36,10 +36,11 @@
         <input type="submit" value="OK">
     </form>
 
-
-    <a href="{{route('commentaires.create', ["oeuvre_id" => $oeuvre->id])}}">
-        <button>Ecrire un commentaire</button>
-    </a>
+    @if(Auth::user())
+        <a href="{{route('commentaires.create', ["oeuvre_id" => $oeuvre->id])}}">
+            <button>Ecrire un commentaire</button>
+        </a>
+    @endif
 
     @foreach( $commentaires as $commentaire)
         <li> Nom : {{$commentaire['titre']}} <br> Texte : {{$commentaire['contenu']}} <br> User-Id
