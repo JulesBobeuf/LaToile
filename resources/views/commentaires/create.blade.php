@@ -3,6 +3,7 @@
 @section('title', 'Liste des commentaires')
 
 @section('content')
+
     {{--
        messages d'erreurs dans la saisie du formulaire.
     --}}
@@ -20,7 +21,6 @@
          formulaire de saisie d'un commentaire
          la fonction 'route' utilise un nom de route
       --}}
-
     <form action="{{route('commentaires.store')}}" method="POST">
         {!! csrf_field() !!}
         <input type="hidden" name="oeuvre_id" value="{{$oeuvre->id}}">

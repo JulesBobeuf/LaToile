@@ -34,25 +34,11 @@
                    value="{{ old('nom') }}">
         </div>
         <div>
-            {{-- le media_url l'oeuvre  --}}
-            <label for="media_url"><strong>media_url de l'oeuvre : </strong></label>
-            <textarea name="media_url" rows="6"
-                      placeholder="media_url..">
-                    {{ old('media_url') }}</textarea>
-        </div>
-        <div>
-            {{-- la thumbnail_url de l'oeuvre  --}}
-            <label for="thumbnail_url"><strong>thumbnail_url de l'oeuvre : </strong></label>
-            <textarea name="thumbnail_url" rows="6"
-                      placeholder="thumbnail_url..">
-                    {{ old('thumbnail_url') }}</textarea>
-        </div>
-        <div>
-            {{-- la informations de l'oeuvre  --}}
-            <label for="informations"><strong>informations de l'oeuvre : </strong></label>
-            <textarea name="informations" rows="6"
-                      placeholder="informations..">
-                    {{ old('informations') }}</textarea>
+            {{-- la description de l'oeuvre  --}}
+            <label for="description"><strong>description de l'oeuvre : </strong></label>
+            <textarea name="description" rows="6"
+                      placeholder="description..">
+                    {{ old('description') }}</textarea>
         </div>
         <div>
             {{-- la coord_x de l'oeuvre  --}}
@@ -97,7 +83,9 @@
             <input type="style" name="style"
                    value="{{ old('style') }}">
         </div>
-        <input type="file" name="image" id="doc"> Saisir le lien de l'oeuvre
+        <input type="file" name="media" id="doc"> Media de l'oeuvre
+        <br>
+        <input type="file" name="thumbnail" id="doc"> Thumbnail de l'oeuvre
         <div>
             <button class="btn btn-success" type="submit">Valide</button>
         </div>
