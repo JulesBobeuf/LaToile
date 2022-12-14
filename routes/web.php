@@ -26,3 +26,4 @@ Route::get('/home', function () {
 
 Route::resource('/salles', \App\Http\Controllers\SalleController::class);
 Route::resource('/oeuvres', \App\Http\Controllers\OeuvreController::class);
+Route::resource('/users', \App\Http\Controllers\UserController::class);
