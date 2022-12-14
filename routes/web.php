@@ -22,3 +22,7 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 })->middleware(['auth'])->name('home');
+
+
+Route::resource('/salles', \App\Http\Controllers\SalleController::class);
+Route::resource('/oeuvres', \App\Http\Controllers\OeuvreController::class);
