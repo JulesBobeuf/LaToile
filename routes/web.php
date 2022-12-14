@@ -29,6 +29,6 @@ Route::resource('/oeuvres', \App\Http\Controllers\OeuvreController::class);
 Route::post('/like/{id}', [\App\Http\Controllers\LikeController::class,'store'])->name('like');
 Route::post('/dislike/{id}', [\App\Http\Controllers\LikeController::class,'destroy'])->name('dislike');
 Route::resource('/users', \App\Http\Controllers\UserController::class);
-
+Route::post('/users/{id}', [\App\Http\Controllers\UserController::class,'update'])->name('updateavatar');
 Route::resource('/commentaires', \App\Http\Controllers\CommentaireController::class) ->except('create');
 Route::get('/commentaires/create/{oeuvre_id}', [\App\Http\Controllers\CommentaireController::class, 'create'])->name('commentaires.create');

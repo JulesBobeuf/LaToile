@@ -100,21 +100,6 @@ class UserController extends Controller {
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\User $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id) {
-        $user = User::find($id);
-        if ($user->cant('update', $user)) {
-            return redirect()->route('users.show', ['user' => $user->id, 'action' => 'show'])
-                ->with('msg', "Vous n'êtes pas l'utilisateur !");
-        }
-        return view('users.edit', ['user' => $user]);
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
@@ -126,35 +111,20 @@ class UserController extends Controller {
         $this->validate(
             $request,
             [
-                'name',
-                'email',
-                'email_verified_at',
-                'password',
                 'avatar',
-                'admin',
-                'remember_token',
-                'created_at',
-                'updated_at',
-                'two_factor_secret',
-                'two_factor_recovery_codes'
             ]
         );
+        if ($request->hasFile('avatar') && $request->file('avatar')->isValid()) {
+            $file = $request->file('avatar');
+            $base = 'user';
+            $now = time();
+            $nom = sprintf("%s_%d.%s", $base, $now, $file->extension());
+            $file->storeAs('images/avatars/', $nom);
+            $user->avatar = 'images/avatars/' . $nom;
+            $user->save();
+        }
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->email_verified_at = $request->email_verified_at;
-        $user->password = $request->password;
-        $user->avatar = $request->avatar;
-        $user->admin = $request->admin;
-        $user->remember_token = $request->remember_token;
-        $user->created_at = $request->created_at;
-        $user->updated_at = $request->updated_at;
-        $user->two_factor_secret = $request->two_factor_secret;
-        $user->two_factor_recovery_codes = $request->two_factor_recovery_codes;
-
-        $user->save();
-
-        return redirect()->route('users.index');
+        return redirect()->route('users.show',['user' => $id]);
     }
 
     /**

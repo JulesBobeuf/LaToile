@@ -23,7 +23,23 @@
     </div>
     <div>
         {{-- l'avatar --}}
-        <p><strong>Avatar : </strong>{{$user->avatar}} / 5</p>
+        <p>Avatar : </p>
+        <img src="{{asset("/storage/".$user->avatar)}}" height="100" width="100">
+    </div>
+    <div>
+        @if (Auth::id()==$user->id)
+        <h4> Changer d'avatar</h4>
+        <form action="{{route('updateavatar',$user->id)}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="avatar" id="doc"> Avatar
+            <button class="btn btn-success" type="submit">Valide</button>
+        </form>
+        @endif
+    </div>
+    <div>
+        <a href="{{route('users.index')}}">
+            <button class="button is-info">Retour aux salles</button>
+        </a>
     </div>
 
     <div>
@@ -36,6 +52,5 @@
         </a>
 
     </div>
-
 
 @endsection
