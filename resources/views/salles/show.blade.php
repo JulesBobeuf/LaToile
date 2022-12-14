@@ -1,8 +1,8 @@
-@extends('layout.master')
+@extends('layouts.app')
 
 @section('title', 'Une salle')
 
-@section('main')
+@section('content')
 
     <div class="text-center" style="margin-top: 2rem">
         @if($action == 'delete')
@@ -15,44 +15,26 @@
 
     <div>
         {{-- Le nom de la salle --}}
-        <p><strong>Nom : </strong>{{$commentaire->nom}}</p>
+        <p><strong>Nom : </strong>{{$salle->nom}}</p>
     </div>
     <div>
         {{-- le theme de la salle --}}
-        <p><strong>Theme : </strong>{{$commentaire->theme}}</p>
+        <p><strong>Theme : </strong>{{$salle->theme}}</p>
     </div>
     <div>
         {{-- la Description de la salle --}}
-        <p><strong>Description : </strong>{{$commentaire->description}} / 5</p>
+        <p><strong>Description : </strong>{{$salle->description}} / 5</p>
     </div>
-
-    @can('update',$salle)
-        <a href="{{ route('salles.edit', $salle->id)}}">
-            <button class="button is-info">MODIFIER</button>
-        </a>
-    @endcan
-
-    @can('delete',$salle)
-        <a href="/salles/{{$salle->id}}?action=delete">
-            <button class="button is-danger">SUPPRIMER</button>
-        </a>
-    @endcan
-
-    @if($action == 'delete')
-        <form action="{{route('salles.destroy',$salle->id)}}" method="POST">
-            @csrf
-            @method('DELETE')
-            <div class="has-text-centered">
-                <button class="button is-danger" type="submit" name="delete" value="valide">Valide</button>
-                <button class="button is-info" type="submit" name="delete" value="annule">Annule</button>
-            </div>
-        </form>
-    @else
+    @foreach($oeuvres as $oeuvre)
+        <li> Nom : {{$oeuvre['nom']}} <br> media_url : {{$oeuvre['media_url']}} <br> thumbnail_url : {{$oeuvre['thumbnail_url']}} <br> description : {{$oeuvre['description']}}
+            <br> coord_x : {{$oeuvre['coord_x']}} <br> coord_y : {{$oeuvre['coord_y']}} <br> salle_id : {{$oeuvre['salle_id']}} <br> auteur_id : {{$oeuvre['auteur_id']}}
+            <br> date_creation : {{$oeuvre['date_creation']}}  <br> style : {{$oeuvre['style']}}  <br> valide : {{$oeuvre['valide']}}  <br> <a href="{{route('oeuvres.show',$oeuvre->id)}}">Montrer cette oeuvre</a> <br>
+            <br><hr><br>
+    @endforeach
         <div>
             <a href="{{route('salles.index')}}">
                 <button class="button is-info">Retour aux salles</button>
             </a>
         </div>
-    @endif
 
 @endsection
