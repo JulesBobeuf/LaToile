@@ -7,6 +7,9 @@
 
 <div class='content'>
     <div class="oeuvres">
+       
+        <img src="{{asset('/images/pixel.png')}}" />
+
 
         <div class='grid'>
             <div class='grid1'>
@@ -29,7 +32,7 @@
         </div>
                 <div class="retour">
                     
-                @if($salle->id=5)
+                @if($salle->id==5)
                     <a href="{{route('salles.index')}}">
                     <button class="button is-info">Arrêt suivant ></button>
                     </a>

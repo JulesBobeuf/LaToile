@@ -14,8 +14,9 @@ min-height:10rem
 body{
     overflow: hidden;
     background-color: #F9F3E5;
-    font-size: 1.4rem;
+    font-size: 3.4rem;
     font-family: 'Passion One';
+
 }
 a{
     text-decoration: none;
@@ -181,6 +182,7 @@ label{
   }
   .retour i{
     font-size: 5rem;
+    color: #103778;
   }
 
   .ronds{
@@ -223,6 +225,123 @@ label{
     width: 10%;
     position: relative;
     top: 2rem;
+  }
+
+  .descrioeuvre1{
+    opacity: 0%; 
+    
+
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    width: 40vw;
+  }
+  .descrioeuvre1.active{
+    opacity: 100%;
+    background-color: #fef3f6;
+    border-radius: 2rem;
+    padding: 1rem;
+    border: 5px solid grey;
+    font-size: 1rem;
+    
+    
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    width: 40vw;
+  }
+
+  .descrioeuvre2{
+    opacity: 0%; 
+    
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    width: 40vw;
+  }
+  .descrioeuvre2.active{
+    opacity: 100%;
+    background-color: #fef3f6;
+    border-radius: 2rem;
+    padding: 1rem;
+    border: 5px solid grey;
+    font-size: 1rem;
+    
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    width: 40vw;
+  }
+
+  .descrioeuvre3{
+    opacity: 0%; 
+    
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    width: 40vw;
+  }
+  .descrioeuvre3.active{
+    opacity: 100%;
+    background-color: #fef3f6;
+    border-radius: 2rem;
+    padding: 1rem;
+    border: 5px solid grey;
+    font-size: 1rem;
+    
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    width: 40vw;
+  }
+
+  .descrioeuvre4{
+    opacity: 0%; 
+    
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    width: 40vw;
+  }
+  .descrioeuvre4.active{
+    opacity: 100%;
+    background-color: #fef3f6;
+    border-radius: 2rem;
+    padding: 1rem;
+    border: 5px solid grey;
+    font-size: 1rem;
+    
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    width: 40vw;
+  }
+
+  .descrioeuvre5{
+    opacity: 0%; 
+    
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    width: 40vw;
+  }
+  .descrioeuvre5.active{
+    opacity: 100%;
+    background-color: #fef3f6;
+    border-radius: 2rem;
+    padding: 1rem;
+    border: 5px solid grey;
+    font-size: 1rem;
+    
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    width: 40vw;
   }
 }
 
