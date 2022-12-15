@@ -3,13 +3,30 @@
 @section('title', 'La toile - Accueil')
 
 @section('content')
-    <h1>La toile</h1>
+<div class='container'>
+    <!-- <h1>La toile</h1> -->
 
-    <p id="description_exposition">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut imperdiet diam eu leo blandit congue. Ut ut nulla vitae mi gravida scelerisque. Fusce eget orci aliquet, luctus dolor euismod, ultrices justo. Nullam bibendum hendrerit augue, non hendrerit justo pellentesque quis. Nunc non sem varius, ultricies augue sit amet, bibendum ligula.
-    </p>
+    <div class="flexaccueil">
+        <div>
+            <h2>Entrez dans</h2>
+            <h1 id="description_exposition">
+            Une exposition d'art numérique 100% française.
+            </h1>
+        </div>
+    
 
-    <a href="{{route('salles.index')}}">Liste de salles</a>
+    <a class="forward" href="{{route('salles.index')}}"><i class='bx bx-right-arrow-circle' ></i></a>
+    </div>
+    
+</div>
 
-    <a href="#">INTERVIEW</a>
+
+<div class="metro">
+    <img src="/images/metro.png">
+</div>
+
+<div class="mentions" id="mentionscolor">
+        <a href="mentions">mentions légales</a>
+    </div>
+
 @endsection

@@ -19,7 +19,7 @@ class statutUtilisateur extends Component {
     }
 
     public function nombreCommentaires(): int {
-        $commentaires = DB::table('commentaires')->where('user_id', '=', Auth::user()->id)->get();
+        $commentaires = DB::table('commentaires')->where('user_id', '=', $this->user->id)->get();
         $count = 0;
         foreach ($commentaires as $commentaire){
             $count += 1;
@@ -28,7 +28,7 @@ class statutUtilisateur extends Component {
     }
 
     public function nombreOeuvresLikes(): int {
-        $likes = DB::table('likes')->where('user_id', '=', Auth::user()->id)->get();
+        $likes = DB::table('likes')->where('user_id', '=', $this->user->id)->get();
         $count = 0;
         foreach ($likes as $like){
             $count += 1;
