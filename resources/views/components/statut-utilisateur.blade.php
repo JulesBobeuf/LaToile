@@ -1,4 +1,4 @@
 <ul>
-    <li>Nombre de commentaires : {{$nombreCommentaires()}}</li>
-    <li>Nombre d'oeuvres likées : {{$nombreOeuvresLikes()}}</li>
+    <li>Nombre de commentaires : {{$user->nombreCommentaires()}}</li>
+    <li>Nombre d'oeuvres likées : {{$user->nombreOeuvresLikes()}}</li>
 </ul>
