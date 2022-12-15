@@ -3,9 +3,9 @@
     <ul>
 
         @guest
-            <a href='/' class="logo">
+            <a href="{{route('salles.index')}}" class="logo">
                 
-            <img src="{{asset('/images/logo.PNG')}}">
+            <img src="{{asset('/images/logo.png')}}">
             </a>
             <li><a href="{{ route('apropos') }}">À propos</a></li>
             <li><a href="{{ route('login') }}">Connecte-toi</a></li>
