@@ -1,16 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.appV2')
 
 @section('content')
 
-<div>
+<div class="login">
     @include("_errors")
     <form action="{{route('register')}}" method="post">
         @csrf
         <div>
             <h1>Création accès musée</h1>
-            <div>
-                Si vous avez déjà un compte, <a href="{{route('login')}}">connectez-vous</a>.
-            </div>
         </div>
         <div>
             <label for="name">Nom</label>
@@ -36,12 +33,15 @@
             <input type="password" name="password_confirmation" id="conf_pwd">
         </div>
         <div>
-            <input type="submit" value="Enregistrement">
+            <input type="submit" value="Enregistrement" class="connexion">
         </div>
     </form>
     <div>
         <a href="{{route('accueil')}}">Retour à la page principale</a>
     </div>
+    <div class="inscri">
+        Si vous avez déjà un compte, <a href="{{route('login')}}">connectez-vous</a>.
+     </div>
 </div>
 
 @endsection

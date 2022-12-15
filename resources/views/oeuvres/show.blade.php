@@ -1,10 +1,30 @@
-@extends('layouts.app')
+@extends('layouts.appOeuvre')
 
 @section('title', 'show oeuvre')
 
 @section('content')
     <div class="text-center" style="margin-top: 2rem">
             <h3>{{$oeuvre->nomOeuvre}}</h3>
+        @endif
+        
+    </div>
+    <p> media </p>
+        <img src=" {{asset("/storage/".$oeuvre->media_url)}}">
+    <div>
+    <li> 
+        Nom : {{$oeuvre['nom']}} 
+        auteur : {{$oeuvre['auteur']}}
+        date_creation : {{$oeuvre['date_creation']}}
+         <p class="description"> {{$oeuvre['description']}}</p>
+        
+          
+        style : {{$oeuvre['style']}}  
+        valide : {{$oeuvre['valide']}}  
+        likes : {{$nbLikes}} 
+        <a href="{{$oeuvre['media_url']}}">media url</a> 
+    </li>
+    </div>
+
         <hr class="mt-2 mb-2">
     </div>
     <div>
