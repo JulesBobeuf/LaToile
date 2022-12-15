@@ -92,7 +92,7 @@ class OeuvreController extends Controller
         }
         $oeuvre->save();
 
-        return redirect()->route('oeuvres.index')
+        return redirect()->route('salles.index')
             ->with('type', 'primary')
             ->with('msg', 'oeuvres ajoutée avec succès' . $oeuvre->nom);
     }

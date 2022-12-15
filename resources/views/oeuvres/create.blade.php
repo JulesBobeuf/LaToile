@@ -76,6 +76,7 @@
             <input type="style" name="style"
                    value="{{ old('style') }}">
         </div>
+        
         <input type="file" name="media" id="doc"> Media de l'oeuvre
         <br>
         <input type="file" name="thumbnail" id="doc"> Thumbnail de l'oeuvre

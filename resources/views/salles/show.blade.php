@@ -5,10 +5,9 @@
 @section('content')
 
 
-        @guest
-            header("{{route('login')}}");
-        @else
-        @endguest
+        
+                
+                
 
 
 <div class="back">
@@ -31,23 +30,25 @@
         <img src="{{asset('/images/arret.png')}}" />
         @endif
 
+
+        
+        
         <div class='grid'>
             <div class='grid1'>
                 <form class="valider" action="{{route('salles.show',$salle->id)}}" method="get">
 
 
-        @guest
-        <a href="{{route('login')}}">Connectez vous pour ajouter une oeuvre</a>
-        @else
-        <a href="{{route('oeuvres.create')}}">Créer une oeuvre</a>
-        @endguest
+
+
+                @if($salle->id==5)
+                @guest
+                <a href="{{route('login')}}">Connectez vous pour ajouter et voir une oeuvre</a>
+                @else
+                <a href="{{route('oeuvres.create')}}">Créer une oeuvre</a>
+                @endguest
+                 @endif
 
                 
-
-
-
-
-
                     <select class="selectvalider" name="cat">
                         @foreach($categoriesOeuvres as $categorie)
                             <option value="{{$categorie}}" @if($cat == $categorie) selected @endif>{{$categorie}}</option>
@@ -78,20 +79,37 @@
             </div>
 
         </div>
+        
+       
                 <div class="retour">
 
                 @if($salle->id==5)
                     <a href="{{route('salles.index')}}">
                     <p class="button is-info">Terminus<i class='bx bx-right-arrow-circle' ></i></p>
                     </a>
-                        @else
-                        <a href="{{route('salles.show',$salle->id+1)}}">
-                        <p class="button is-info">Arrêt suivant<i class='bx bx-right-arrow-circle' ></i></p>
-                        </a>
+                
+                @elseif($salle->id==4)
+                    @guest
+                    <a href="{{route('login')}}">Connectez vous pour ajouter et voir la page 5</a>
+                    @else
+                    <a href="{{route('salles.show',$salle->id+1)}}">
+                    <p class="button is-info">Arrêt suivant<i class='bx bx-right-arrow-circle' ></i></p>
+                    </a>
+                    @endguest
+
+            
+                @else
+                <a href="{{route('salles.show',$salle->id+1)}}">
+                    <p class="button is-info">Arrêt suivant<i class='bx bx-right-arrow-circle' ></i></p>
+                    </a>
+                 @endif
+
+
+                
 
 
 
-                @endif
+                
                 </div>
     </div>
 <script>

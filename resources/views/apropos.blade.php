@@ -1,4 +1,4 @@
-@extends('layouts.appV2')
+@extends('layouts.apropos')
 
 @section('title', 'A propos')
 
@@ -22,7 +22,7 @@
 
         Nous avons choisi la date du 21 avril pour honorer la journée de la créativité et plus particulièrement la créativité dans le monde du numérique. La créativité et la France sont le point névralgique de notre exposition. </br>Elle sera en ligne pendant 1 an et contiendra à des dates définies des « expositions capsules qu’on appellera Arrêt surprise » qui mettra à l’honneur pendant un temps défini un artiste ou un art numérique bien précis.
     </p>
-    
+
 
     <div class="edito">
         <h3> l'équipe </h3>
@@ -37,7 +37,8 @@
     </div>
     <div>
         <h4 class="interview"> Visionnez l'interview de l'organisateur</h4>
-        <video></video>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/aU8cdcWqaWg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
     </div>
     </div>
