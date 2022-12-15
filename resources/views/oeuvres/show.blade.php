@@ -62,12 +62,11 @@
     @if ($oeuvresParAuteur!= null)
         @foreach($oeuvresParAuteur as $oeuvreParAuteur)
                     <p>Oeuvre : </p>
-            <li> Nom : {{$oeuvreParAuteur['nom']}} <br> media_url : {{$oeuvreParAuteur['media_url']}} <br> thumbnail_url
-                : {{$oeuvreParAuteur['thumbnail_url']}} <br> description : {{$oeuvreParAuteur['description']}}
-                <br> coord_x : {{$oeuvreParAuteur['coord_x']}} <br> coord_y : {{$oeuvreParAuteur['coord_y']}} <br> salle_id
-                : {{$oeuvreParAuteur['salle_id']}} <br> auteur : {{$oeuvreParAuteur['auteur']}}</a>
-                <br> date_creation : {{$oeuvreParAuteur['date_creation']}} <br> style : {{$oeuvreParAuteur['style']}} <br> valide
-                : {{$oeuvreParAuteur['valide']}} <br>
+            <li> Nom : {{$oeuvreParAuteur['nom']}} <br> media_url : {{$oeuvreParAuteur['media_url']}}
+                <br> description : {{$oeuvreParAuteur['description']}}
+                <br> auteur : {{$oeuvreParAuteur['auteur']}}</a>
+                <br> date_creation : {{$oeuvreParAuteur['date_creation']}} <br> style : {{$oeuvreParAuteur['style']}} <br>
+            </li>
         @endforeach
     @endif
     </div>
