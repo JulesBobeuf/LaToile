@@ -12,6 +12,7 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
+        "darkmode-js": "^1.5.7",
         "path": "^0.12.7",
         "sass": "^1.56.1"
     }
