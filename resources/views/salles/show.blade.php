@@ -10,6 +10,14 @@
 
         <div class='grid'>
             <div class='grid1'>
+                <form action="{{route('salles.show',$salle->id)}}" method="get">
+                    <select name="cat">
+                        @foreach($categoriesOeuvres as $categorie)
+                            <option value="{{$categorie}}" @if($cat == $categorie) selected @endif>{{$categorie}}</option>
+                        @endforeach
+                    </select>
+                    <input type="submit" value="OK">
+                </form>
                 @foreach($oeuvres as $oeuvre)
                     <div class='oeuvre'>
                         <img src="{{asset("/storage/".$oeuvre->media_url)}}">

@@ -90,10 +90,17 @@ class SalleController extends Controller
      */
     public function show(Request $request, $id)
     {
+        $categoriesOeuvres = array('Toutes les oeuvres','Oeuvres validées');
+        $cat = $request->input('cat', 'Toutes les oeuvres');
         $action = $request->query('action', 'show');
         $salle = Salle::find($id);
-        $oeuvres = Oeuvre::all()->where('salle_id','=',$salle->id);
-        return view('salles.show', ['salle' => $salle, 'action' => $action,'oeuvres' => $oeuvres]);
+        if ($cat=='Toutes les oeuvres') {
+            $oeuvres = Oeuvre::all()->where('salle_id', '=', $salle->id);
+        }
+        else {
+            $oeuvres = Oeuvre::all()->where('salle_id', '=', $salle->id)->where('valide','=',1);
+        }
+        return view('salles.show', ['salle' => $salle, 'action' => $action,'oeuvres' => $oeuvres,'cat' => $cat, 'categoriesOeuvres' => $categoriesOeuvres]);
     }
 
     /**
