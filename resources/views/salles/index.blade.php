@@ -10,17 +10,17 @@
 
 <h1>Choisis ton arrêt</h1>
 
+
+
 @if(!empty($salles))
         <div class="ronds">
             @foreach($salles as $salle)
             <div class="tabflex">
             <a href="{{route('salles.show',$salle->id)}}">
-                <div onmouseover="display(this)" onmouseout="nodisplay(this)" class='round a{{$salle->id}}'>{{$salle->id}}
-                    
-                    <div class='titre{{$salle->id}}'>
-                        <h4>L'art du pixel</h4>
-                        <p>Les créations les plus incroyables de ce domaine</p>
-                    </div>
+                <div onmouseover="display{{$salle->id}}(this)" onmouseout="nodisplay{{$salle->id}}(this)" class='round a{{$salle->id}}'>{{$salle->id}}
+
+                        <h2 class="salledescription">{{$salle->description}}</h2>
+
                     </a>
                 </div> 
             </div>
