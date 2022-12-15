@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appV2')
 
 @section('title', 'Une salle')
 
@@ -8,14 +8,14 @@
         @if($action == 'delete')
             <h3 class="title is-3 is-uppercase has-text-danger has-text-centered">Suppression d'une salle</h3>
         @else
-            <h3 class="title is-3 has-text-centered">Affichage du profil</h3>
+            <h3 class="title is-3 has-text-centered">Mon profil</h3>
         @endif
         <hr>
-    </div>
+    
 
     <div>
         {{-- Le nom de l'utilisateur --}}
-        <p><strong>Nom : </strong>{{$user->name}}</p>
+        <h2 class="pseudo">{{$user->name}}</h2>
     </div>
     <div>
         {{-- l'email --}}
@@ -23,16 +23,16 @@
     </div>
     <div>
         {{-- l'avatar --}}
-        <p>Avatar : </p>
-        <img src="{{asset("/storage/".$user->avatar)}}" height="100" width="100">
+        <img class="avatarimg" src="{{asset("/storage/".$user->avatar)}}">
     </div>
     <div>
         @if (Auth::id()==$user->id)
-        <h4> Changer d'avatar</h4>
+        <h4> Changer d'avatar:</h4>
         <form action="{{route('updateavatar',$user->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
-            <input type="file" name="avatar" id="doc"> Avatar
-            <button class="btn btn-success" type="submit">Valide</button>
+            <label for="avatar" class="connexion pdp">Importer ma photo</label>
+            <input type="file" name="avatar" id="doc"> 
+            <button class="connexion" type="submit">Valider</button>
         </form>
         @endif
     </div>
@@ -43,8 +43,10 @@
 
     <div>
         <a href="{{route('users.index')}}">
-            <button>Retour aux salles</button>
+            <button class="connexion bas">Retour aux salles</button>
         </a>
+
+    </div>
 
     </div>
 
