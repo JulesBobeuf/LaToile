@@ -18,15 +18,15 @@
             <input type="password" name="password" id="pwd">
         </div>
         <div >
-            <input type="submit" value="Connexion">
+            <input type="submit" value="Connexion" class="connexion">
         </div>
     </form>
     <div>
         <a href="{{route('accueil')}}">Retour à la page principale</a>
     </div>
 
-            <div>
-                Si vous n'avez pas de compte, <a href="{{route('register')}}">vous pouvez en créer un ici.</a>
+            <div class="inscri">
+                Si vous n'avez pas de compte, vous pouvez <a href="{{route('register')}}">en créer un ici.</a>
             </div>
 
 </div>

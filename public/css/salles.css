@@ -58,7 +58,9 @@ ul{
     flex-direction: column;
   }
 
-
+  .titre{
+    display: none;
+  }
 
   .grid {
     display: grid;
@@ -212,3 +214,183 @@ label{
     left: 11rem;
     width: 51rem;
   }
+}
+
+
+
+
+
+
+
+
+
+
+/* Smartphone version */
+
+@media (max-width:800px){
+
+  .container{
+    display:flex;
+    flex-direction:column;
+    width:90vw;
+    margin:0 auto;
+    min-height:10rem
+    }
+    
+    body{
+        overflow: hidden;
+        background-color: #F9F3E5;
+        font-size: 1.4rem;
+        font-family: 'Passion One';
+    }
+
+    h1{
+      font-size: 9vw;
+      font-weight: 100;
+      text-align: center;
+      color: #103778;
+      position: relative;
+  }
+
+  .retour i{
+    font-size: 5rem;
+    padding: 1rem;
+    color: #103778;
+    position: absolute;
+  }
+
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    
+    /* ronds menu nav */
+
+    .trajet img {
+      display: none;
+    }
+
+    .ronds{
+      margin-top: 100px;
+      font-size: 2rem;
+    }
+    .round{
+      color: white;
+      text-align: center;
+      align-items: center;
+      height: 100px;
+      width: 100px;
+      background-color: #E3371E;
+      border-radius: 50px;
+      display: grid;
+      margin-left: 20%;
+      margin-bottom: 300px;
+    }
+
+    .tabflex{
+      display: flex;
+    }
+
+    .titre {
+      color: #E3371E;
+      margin-left: 30px;
+      max-width: 50%;
+    }
+
+    .titre h4{
+      margin: 0px;
+    }
+    
+    ul{
+        display: none;
+    }
+
+      .metro img{
+        position: sticky;
+        bottom: 0px;
+      }
+    
+    .content{
+        display: flex;
+        height: 59vw;
+    }
+    
+    .oeuvres{
+        display: flex;
+        overflow: auto;
+    }
+    
+    .intro{
+        display: flex;
+        flex-direction: column;
+    }
+    .descriptionsalle{
+        width: 100vw;
+    }
+    
+    .oeuvre{
+        white-space: normal;
+        margin: 0 10vw;
+    }
+
+    .flexaccueil{
+        margin-top: 3vw;
+        align-items: center;
+        gap: 32vw;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .mentions{
+        z-index: 5;
+        display: flex;
+        position: fixed;
+        width: 100%;
+        bottom: 2%;
+        justify-content: center;
+        align-items: center;
+        color:#fefadd
+      }
+      #mentionscolor a{
+        font-weight: 900;
+        font-size: 1vw;
+        text-transform: uppercase;
+        text-decoration: none;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        color: black;
+      }
+    
+    
+    .logo{
+        flex-grow: 1;
+    }
+    
+    
+    i{
+        font-size: 10vw;
+        color: white;
+    }
+    
+    .login{
+        text-align: center;
+        display:flex;
+    flex-direction:column;
+    width:40vw;
+    margin:0 auto;
+    min-height:10rem
+    }
+    label{
+        display:flex;
+        flex-direction:column;
+        text-align: center;
+    
+    }
+    
+      .button{
+        background: none;
+        border: none;
+      }
+}

@@ -14,13 +14,53 @@
 <img src="/images/lines.svg">
 </div>
     <div class="ronds">
-        <div class='round a'>1</div>
-       
-        <div class='round b'>2</div>
-        <div class='round c'>3</div>
-        <div class='round d'>4</div>
-        <div class='round e'>5</div>
-        <div class='round f'>6</div>
+        <div class="tabflex">
+            <div class='round a'>1</div>
+            <div class='titre'>
+                <h4>L'art du pixel</h4>
+                <p>Les créations les plus incroyables de ce domaine</p>
+            </div>
+        </div>
+
+        <div class="tabflex">
+            <div class='round b'>2</div>
+            <div class='titre'>
+                <h4>Oeuvre IA</h4>
+                <p>Les créations les plus incroyables de ce domaine</p>
+            </div>
+        </div>
+
+        <div class="tabflex">
+            <div class='round c'>3</div>
+            <div class='titre'>
+                <h4>Rendu 3D</h4>
+                <p>Les créations les plus incroyables de ce domaine</p>
+            </div>
+        </div>
+
+        <div class="tabflex">
+            <div class='round d'>4</div>
+            <div class='titre'>
+                <h4>Animation 2D</h4>
+                <p>Les créations les plus incroyables de ce domaine</p>
+            </div>
+        </div>
+
+        <div class="tabflex">
+            <div class='round e'>5</div>
+            <div class='titre'>
+                <h4>Ton arrêt</h4>
+                <p>Là où tu peux nous montrer tes créations</p>
+            </div>
+        </div>
+
+        <div class="tabflex">
+            <div class='round f'>6</div>
+            <div class='titre'>
+                <h4>Nous contacter</h4>
+                <p>Là où tu peux nous contacter et en savoir plus sur nous</p>
+            </div>
+        </div>
     </div>
 
     @if(!empty($salles))
