@@ -13,7 +13,7 @@ html{
     font-family: 'Maven Pro', sans-serif;
     font-size: 62.5%;
     /* background-color: #0d0f2c; */
-    background: rgb(171,179,185);
+    background: #F9F3E5;
     background: radial-gradient(circle, rgba(171,179,185,1) 12%, rgba(1,1,1,1) 82%);  }
   .logo>a>img{
     width: 10%;
@@ -69,6 +69,10 @@ html{
         justify-content: space-between;
         width: 100%;
     }
+
+
+
+
   }
   
   /* Mobile responsive */

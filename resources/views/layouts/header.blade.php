@@ -3,9 +3,9 @@
     <ul>
         
         @guest
-        <div class="logo">
-            <img src="http://localhost:8000/storage/images/images/logo.PNG">
-            </div>
+            <a href='/' class="logo">
+            <img src="/storage/images/images/logo.PNG">
+            </a>
             <li><a href="{{ route('login') }}">Connecte-toi</a></li>
             <li><a href="{{ route('register') }}">Inscris-toi</a></li>
         @else

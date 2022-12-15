@@ -1,0 +1,188 @@
+
+/* Desktop version */
+
+@media (min-width:801px){
+
+.container{
+display:flex;
+flex-direction:column;
+width:90vw;
+margin:0 auto;
+min-height:10rem
+}
+
+body{
+    margin: 0;
+    background-color: #F9F3E5;
+    font-size: 1.4rem;
+    font-family: 'Passion One';
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+/* ronds menu nav */
+
+ul{
+    display: flex;
+    justify-content: space-around;
+    padding: 0 2vw;
+    align-items: center;
+}
+
+.content{
+    display: flex;
+    height: 62rem;
+}
+
+.oeuvres{
+    display: flex;
+    overflow: auto;
+}
+
+.intro{
+    display: flex;
+    flex-direction: column;
+}
+.descriptionsalle{
+    width: 100vw;
+}
+
+  li{
+    display: flex;
+    flex-direction: column;
+  }
+  li>a{
+    padding-left: 4vw;
+    font-size: 1.5vw;
+  }
+
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    grid-row-gap: 1%;
+    grid-column-gap: 1%;
+    grid-template-areas: "grid1";
+}
+.grid1 {
+    gap: 40rem;
+    display: flex;
+    position: relative;
+    background-color: #f1f2f6;
+    background-image: linear-gradient(315deg, #f1f2f6 0%, #c9c6c6 74%);
+    grid-area: grid1;
+    padding: 5rem 5rem 1rem 5rem
+
+}
+
+.oeuvre{
+    width: 82vw;
+    white-space: normal;
+    /* margin: 0 10vw; */
+}
+
+
+h1{
+    font-size: 3vw;
+    margin: 0;
+}
+h2{
+    margin: 0;
+    font-weight: 100;
+}
+.flexaccueil{
+    margin-top: 3vw;
+    align-items: center;
+    gap: 32vw;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+.mentions{
+    z-index: 5;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    bottom: 2%;
+    justify-content: center;
+    align-items: center;
+    color:#fefadd
+  }
+  #mentionscolor a{
+    font-weight: 900;
+    font-size: 1vw;
+    text-transform: uppercase;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    color: black;
+  }
+
+img{
+    width: 10%;
+}
+
+.logo{
+    flex-grow: 1;
+}
+
+
+i{
+    font-size: 10vw;
+}
+
+.login{
+    text-align: center;
+    display:flex;
+flex-direction:column;
+width:40vw;
+margin:0 auto;
+min-height:10rem
+}
+label{
+    display:flex;
+    flex-direction:column;
+    text-align: center;
+
+}
+
+
+.oeuvre img{
+    width: 100%;
+    max-height: 35rem;
+}
+
+
+
+.retour{
+    padding: 0rem 7rem 0rem 100rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button{
+    font-family: 'Passion One';
+    font-size: 2rem;
+    width: 20rem;
+    color: red;
+    text-decoration: none;
+    background: #F9F3E5;
+    border: 2px solid black;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.descriptionoeuvre{
+    width: 100%;
+}
+.description{
+    font-size: 1rem;
+}
+}

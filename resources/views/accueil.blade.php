@@ -15,13 +15,14 @@
         </div>
     
 
-    <a href="{{route('salles.index')}}"><i class='bx bx-right-arrow-circle' ></i></a>
+    <a class="forward" href="{{route('salles.index')}}"><i class='bx bx-right-arrow-circle' ></i></a>
     </div>
-
-
-
-
     
+</div>
+
+
+<div class="metro">
+    <img src="/images/metro.png">
 </div>
 
 <div class="mentions" id="mentionscolor">

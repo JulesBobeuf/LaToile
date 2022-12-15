@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appShow')
 
 @section('title', 'Une salle')
 
@@ -15,7 +15,7 @@
                         <img src="{{asset("/storage/".$oeuvre->media_url)}}">
                         <h1> {{$oeuvre['nom']}} </h1>
                         auteur : {{$oeuvre['auteur']}}
-                        <div><p>azezaeazeazeazeazeazeazeazeazeazeazeazeazeazezaeazeazeazeazeazeazeazeazeazeazeazeazeazeazeazeazezaeaz</p></div>
+                        <div><p class="descriptionoeuvre">{{$oeuvre['description']}}</p></div>
                         
                         <p>{{$oeuvre['date_creation']}} </p>  
                         <a href="{{route('oeuvres.show',$oeuvre->id)}}">Montrer cette oeuvre</a> 
@@ -27,10 +27,17 @@
             </div> 
             
         </div>
-                <div>
+                <div class="retour">
+                    
+                @if($salle->id=5)
                     <a href="{{route('salles.index')}}">
-                        <button class="button is-info">Retour aux salles</button>
+                    <button class="button is-info">Arrêt suivant ></button>
                     </a>
+                        @else
+                        <a href="{{route('salles.show',$salle->id+1)}}">
+                        <button class="button is-info">Arrêt suivant ></button>
+                        </a>
+                @endif
                 </div>
 
     </div>
