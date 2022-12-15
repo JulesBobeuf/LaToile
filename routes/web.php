@@ -18,16 +18,15 @@ Route::get('/', function () {
 })->name('accueil');
 
 
-
-Route::get('/home', function () {
-    return view('home');
-})->middleware(['auth'])->name('home');
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
 
 
 Route::resource('/salles', \App\Http\Controllers\SalleController::class);
 Route::resource('/oeuvres', \App\Http\Controllers\OeuvreController::class);
-Route::post('/like/{id}', [\App\Http\Controllers\LikeController::class,'store'])->name('like');
-Route::post('/dislike/{id}', [\App\Http\Controllers\LikeController::class,'destroy'])->name('dislike');
+Route::post('/like/{id}', [\App\Http\Controllers\LikeController::class, 'store'])->name('like');
+Route::post('/dislike/{id}', [\App\Http\Controllers\LikeController::class, 'destroy'])->name('dislike');
 Route::resource('/users', \App\Http\Controllers\UserController::class);
 Route::post('/users/{id}', [\App\Http\Controllers\UserController::class,'update'])->name('updateavatar');
 
