@@ -71,13 +71,6 @@
         </div>
 
         <div>
-            {{-- le nom de l'oeuvre  --}}
-            <label for="valide"><strong>valide de l'oeuvre : </strong></label>
-            <input type="valide" name="valide"
-                   value="{{ old('valide') }}">
-        </div>
-
-        <div>
             {{-- le style de l'oeuvre  --}}
             <label for="style"><strong>style de l'oeuvre : </strong></label>
             <input type="style" name="style"
