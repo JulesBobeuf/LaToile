@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Commentaire;
 use App\Models\Oeuvre;
 use App\Models\User;
-use App\Models\Visiteur;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -130,7 +129,7 @@ class UserController extends Controller {
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Visiteur $visiteur
+     * @param \App\Models\User $visiteur
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, $id) {

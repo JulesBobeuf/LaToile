@@ -97,4 +97,13 @@ class User extends Authenticatable {
     public function commentaires() {
         return $this->hasMany(Commentaire::class);
     }
+
+    public function nombreCommentaires(): int {
+        return count($this->commentaires);
+    }
+
+    public function nombreOeuvresLikes(): int {
+        return count($this->likes);
+    }
+
 }
