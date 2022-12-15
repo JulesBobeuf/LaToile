@@ -1,16 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.appV2')
 
 @section('content')
 
     @include("_errors")
-<div >
+<div class="login">
     <form action="{{route('login')}}" method="post">
         @csrf
         <div>
             <h1>Accès musée</h1>
-            <div>
-                Si vous n'avez pas de compte, <a href="{{route('register')}}">vous pouvez en créer un</a>.
-            </div>
         </div>
         <div>
             <label for="email">Adresse mail</label>
@@ -21,11 +18,16 @@
             <input type="password" name="password" id="pwd">
         </div>
         <div >
-            <input type="submit" value="Connexion">
+            <input type="submit" value="Me connecter" class="connexion">
         </div>
     </form>
     <div>
         <a href="{{route('accueil')}}">Retour à la page principale</a>
     </div>
+
+            <div class="inscri">
+                Si tu n'as pas de compte, tu peux <a href="{{route('register')}}">en créer un ici.</a>
+            </div>
+
 </div>
 @endsection
