@@ -9,10 +9,8 @@
             <li><a href="{{ route('login') }}">Connecte-toi</a></li>
             <li><a href="{{ route('register') }}">Inscris-toi</a></li>
         @else
-            <li> Bonjour {{ Auth::user()->name }}</li>
-            @if (Auth::user())
-                <li><a href="#">Des liens spécifiques pour utilisateurs connectés..</a></li>
-            @endif
+            <li><a href="{{route('users.show',Auth::user()->id)}}">Profil</a></li>
+            <li><a href="{{route('oeuvres.index')}}">Oeuvres</a></li>
 
             <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.
           getElementById('logout-form').submit();">

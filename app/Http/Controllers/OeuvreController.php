@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Commentaire;
 use App\Models\Oeuvre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -103,22 +104,19 @@ class OeuvreController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $id) {
-        $action = $request->query('action', 'show');
+        $user = Auth::id();
         $oeuvre = Oeuvre::find($id);
-        $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortBy('created_at');
         $nbLikes = DB::table('likes')->where('oeuvre_id','=',$oeuvre->id)->count();
-        $categories = array('All','Recent','Ancien');
+        $categories = array('Recent','Ancien');
         $cat = $request->input('cat', 'All');
+        $like = DB::table('likes')->where('oeuvre_id','=',$oeuvre->id)->where('user_id','=',$user)->exists();
         if ($cat=='Ancien') {
             $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortByDesc('created_at');
-        }
-        elseif ($cat=='Recent') {
-            $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortBy('created_at');
         }
         else {
             $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortBy('created_at');
         }
-        return view('oeuvres.show', ['oeuvre' => $oeuvre, 'action' => $action, 'commentaires' => $commentaires, 'nbLikes' => $nbLikes, 'categories' => $categories, 'cat' => $cat]);
+        return view('oeuvres.show', ['oeuvre' => $oeuvre, 'commentaires' => $commentaires, 'nbLikes' => $nbLikes, 'categories' => $categories, 'cat' => $cat, "like" => $like]);
     }
 
     /**
