@@ -4,22 +4,35 @@
 
 @section('content')
 
+<div class="back">
+    <a href="/salles"><i class='bx bx-left-arrow-circle' ></i></a>
+</div>
+
 
 <div class='content'>
     <div class="oeuvres">
        
-        <img src="{{asset('/images/pixel.png')}}" />
-
+        @if($salle->id==1)
+        <img src="{{asset('/images/arretpixel.png')}}" />
+        @elseif($salle->id==2)
+        <img src="{{asset('/images/arretia.png')}}" />
+        @elseif($salle->id==3)
+        <img src="{{asset('/images/3D.png')}}" />
+        @elseif($salle->id==4)
+        <img src="{{asset('/images/arretflat.png')}}" />
+        @elseif($salle->id==5)
+        <img src="{{asset('/images/arret.png')}}" />
+        @endif
 
         <div class='grid'>
             <div class='grid1'>
-                <form action="{{route('salles.show',$salle->id)}}" method="get">
-                    <select name="cat">
+                <form class="valider" action="{{route('salles.show',$salle->id)}}" method="get">
+                    <select class="selectvalider" name="cat">
                         @foreach($categoriesOeuvres as $categorie)
                             <option value="{{$categorie}}" @if($cat == $categorie) selected @endif>{{$categorie}}</option>
                         @endforeach
                     </select>
-                    <input type="submit" value="OK">
+                    <input class="inputvalider" type="submit" value="OK">
                 </form>
                 @foreach($oeuvres as $oeuvre)
                     <div class='oeuvre'>
@@ -29,8 +42,9 @@
                         <div><p class="descriptionoeuvre">{{$oeuvre['description']}}</p></div>
 
                         <p>{{$oeuvre['date_creation']}} </p>
-                        <a href="{{route('oeuvres.show',$oeuvre->id)}}">Montrer cette oeuvre</a>
-                        <a href='{{$oeuvre["media_url"]}}'>mediaurl</a>
+                        <div class="showurls">
+                        <a class="show" href="{{route('oeuvres.show',$oeuvre->id)}}">Voir oeuvre</a>
+                        </div>
                         @if ($salle->id==5 and $oeuvre->valide==false and Auth::user()->admin==true)
                             <form action="{{route('approuveoeuvre', $oeuvre->id)}}" method="post">
                                 @csrf
@@ -47,12 +61,15 @@
                     
                 @if($salle->id==5)
                     <a href="{{route('salles.index')}}">
-                    <button class="button is-info">Arrêt suivant ></button>
+                    <p class="button is-info">Terminus<i class='bx bx-right-arrow-circle' ></i></p>
                     </a>
                         @else
                         <a href="{{route('salles.show',$salle->id+1)}}">
-                        <button class="button is-info">Arrêt suivant ></button>
+                        <p class="button is-info">Arrêt suivant<i class='bx bx-right-arrow-circle' ></i></p>
                         </a>
+
+            
+
                 @endif
                 </div>
     </div>
