@@ -26,6 +26,9 @@
                 @endguest
             @endif
 
+            @if($salle->id!==5)
+            <a href="{{route('salles.show',$salle->id)}}">
+            @endif
 
             
                 <div onmouseover="display{{$salle->id}}(this)" onmouseout="nodisplay{{$salle->id}}(this)" class='round a{{$salle->id}}'>
