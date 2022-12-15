@@ -1,0 +1,178 @@
+
+/* Desktop version */
+
+.container{
+    display:flex;
+    flex-direction:column;
+    width:90vw;
+    margin:0 auto;
+    min-height:10rem;
+}
+
+body{
+    background-color: #F9F3E5;
+    font-size: 1.4rem;
+    font-family: 'Passion One';
+    color:#103778;
+}
+a{
+    text-decoration: none;
+    color:#E3371E;
+}
+
+.inscri {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    margin-bottom: 300px;
+}
+
+.inscri a {
+    text-decoration: underline;
+}
+
+ul{
+    display: flex;
+    padding: 0 2vw;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.content{
+    display: flex;
+    height: 59vw;
+}
+
+
+li{
+    display: flex;
+}
+li>a{
+    margin-left: 4vw;
+}
+
+h1{
+    font-size: 7vw;
+    margin: 0;
+}
+h2{
+    margin: 0;
+    font-weight: 100;
+}
+
+img{
+    width: 8rem;
+}
+
+.logo{
+    flex-grow: 1;
+}
+
+i{
+    font-size: 10vw;
+}
+
+.login{
+    text-align: center;
+    display:flex;
+    flex-direction:column;
+    width:40vw;
+    margin:0 auto;
+    min-height:10rem
+}
+
+label{
+    display:flex;
+    flex-direction:column;
+    text-align: center;
+    margin-top: 20px;
+}
+
+input{
+    margin: 10px;
+    border: none;
+    height: 35px;
+    width: 100%;
+}
+
+.connexion {
+    color:#F9F3E5;
+    background-color: #E3371E;
+    border: none;
+    width: 100%;
+    padding: 5px;
+}
+
+form{
+    max-width: 100%;
+    text-align: center;
+    margin-left: auto; margin-right:auto;
+}
+
+textarea {
+    border: none;
+    margin-top: 10px;
+    width: 100%;
+}
+
+
+/*//////////// Page User ////////////*/
+
+
+.text-center {
+    margin-left: auto; margin-right: auto;
+    max-width: 30%;
+    text-align: center;
+}
+
+.avatarimg {
+    width: 40%;
+    height: auto;
+}
+
+#doc {
+    display: none;
+}
+
+.pdp {
+    margin-bottom: 30px;
+    padding: 5px;
+    background-color:#103778;
+}
+
+.bas {
+    margin-bottom: 200px;
+}
+
+.pseudo{
+    text-transform: uppercase;
+}
+
+
+
+/*//////////// Page A propos ////////////*/
+
+.edito{
+    max-width: 70%;
+    font-family: Poppins;
+    margin-left: auto; margin-right: auto;
+}
+
+.edito h3{
+    font-family: Passion One;
+    font-size: 5rem;
+    margin-bottom: 40px;
+}
+
+.edito h4{
+    font-family: Passion One;
+    font-size: 2rem;
+}
+
+.interview{
+    max-width: 70%;
+    text-decoration: underline;
+    font-size: 2rem;
+    font-weight: 100;
+    margin-left: auto; margin-right: auto; margin-top: 130px;
+    text-align: center;
+}
