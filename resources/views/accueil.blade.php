@@ -22,7 +22,7 @@
 
 
 <div class="metro">
-    <img src="/images/metro.png">
+    <img src="{{asset('/images/metro.png')}}" />
 </div>
 
 <div class="mentions" id="mentionscolor">
