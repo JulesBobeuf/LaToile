@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appV2')
 
 @section('title', 'Création des Oeuvres')
 
@@ -21,7 +21,7 @@
          la fonction 'route' utilise un nom de route
       --}}
 
-    <form action="{{route('oeuvres.store')}}" method="POST" enctype="multipart/form-data">
+    <form class="login" action="{{route('oeuvres.store')}}" method="POST" enctype="multipart/form-data">
         {!! csrf_field() !!}
         <div class="text-center" style="margin-top: 2rem">
             <h3>Création d'une oeuvre</h3>
@@ -80,7 +80,7 @@
         <br>
         <input type="file" name="thumbnail" id="doc"> Thumbnail de l'oeuvre
         <div>
-            <button class="btn btn-success" type="submit">Valide</button>
+            <button class="connexion" type="submit">Valide</button>
         </div>
     </form>
 @endsection
