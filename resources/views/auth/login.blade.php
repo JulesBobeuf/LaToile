@@ -18,7 +18,7 @@
             <input type="password" name="password" id="pwd">
         </div>
         <div >
-            <input type="submit" value="Connexion" class="connexion">
+            <input type="submit" value="Me connecter" class="connexion">
         </div>
     </form>
     <div>
@@ -26,7 +26,7 @@
     </div>
 
             <div class="inscri">
-                Si vous n'avez pas de compte, vous pouvez <a href="{{route('register')}}">en créer un ici.</a>
+                Si tu n'as pas de compte, tu peux <a href="{{route('register')}}">en créer un ici.</a>
             </div>
 
 </div>

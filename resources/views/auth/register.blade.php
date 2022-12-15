@@ -33,14 +33,14 @@
             <input type="password" name="password_confirmation" id="conf_pwd">
         </div>
         <div>
-            <input type="submit" value="Enregistrement" class="connexion">
+            <input type="submit" value="M'inscrire" class="connexion">
         </div>
     </form>
     <div>
         <a href="{{route('accueil')}}">Retour à la page principale</a>
     </div>
     <div class="inscri">
-        Si vous avez déjà un compte, <a href="{{route('login')}}">connectez-vous</a>.
+        Si tu as déjà un compte, <a href="{{route('login')}}">connecte-toi</a>.
      </div>
 </div>
 
