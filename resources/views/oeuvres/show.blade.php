@@ -31,7 +31,7 @@
             @if (!$like)
                 <form action="{{route('like', $oeuvre->id)}}" method="post">
                     @csrf
-                    <p>Actuellement Disliké ! </p>
+                    <p>Actuellement non liké ! </p>
                     <input type="submit" value="Like"/>
                 </form>
             @else
