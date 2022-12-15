@@ -4,8 +4,27 @@
 
 @section('content')
 
-    <div class="retour">
-        <a href="/salles/{{$oeuvre->salle_id}}"><i class='bx bx-left-arrow-circle' ></i></a>
+<div class="retour">
+    <a href="/salles/{{$oeuvre->salle_id}}"><i class='bx bx-left-arrow-circle' ></i></a>
+</div>
+
+<div class=container>
+    <div class="text-center" style="margin-top: 2rem">
+        <h3>{{$oeuvre->nomOeuvre}}</h3>
+
+    </div>
+    <img src=" {{asset("/storage/".$oeuvre->media_url)}}">
+    <div>
+        <li>
+            <h1> {{$oeuvre['nom']}} </h1>
+            <a href="{{route('oeuvres.show',$oeuvre->id,$oeuvre->auteur)}}"> {{$oeuvre['auteur']}}</a>, {{$oeuvre['date_creation']}}
+            <p class="description"> {{$oeuvre['description']}}</p>
+
+
+           {{$oeuvre['style']}}
+            likes : {{$nbLikes}}
+            <a href="{{$oeuvre['media_url']}}">Lien de l'oeuvre</a>
+        </li>
     </div>
 
     <div class=container>

@@ -3,7 +3,7 @@
 @section('title', 'A propos')
 
 @section('content')
-    <div>
+    <div class="container">
         <h4>Edito</h4>
     <p>Bonjour et bienvenue à tous passionnés d’art numérique, comme simple curieux !
         Nous avons l’honneur de vous accueillir ici même sur ‘’La Toile.Fr ’’ pour vous présenter une exposition d’art numérique 100 % française qui a pour but d’honorer les créatifs Français.
@@ -22,7 +22,7 @@
 
         Nous avons choisi la date du 21 avril pour honorer la journée de la créativité et plus particulièrement la créativité dans le monde du numérique. La créativité et la France sont le point névralgique de notre exposition. Elle sera en ligne pendant 1 an et contiendra à des dates définies des « expositions capsules qu’on appellera Arrêt surprise » qui mettra à l’honneur pendant un temps défini un artiste ou un art numérique bien précis.
     </p>
-    </div>
+    
 
     <div>
         <h4> l'équipe </h4>
@@ -40,6 +40,6 @@
         <video></video>
 
     </div>
-
+    </div>
 
 @endsection
