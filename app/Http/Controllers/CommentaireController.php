@@ -92,21 +92,9 @@ class CommentaireController extends Controller {
      */
     public function update(Request $request, $id) {
         $commentaire = Commentaire::find($id);
-        $this->validate(
-            $request,
-            [
-                'titre' => 'required',
-                'contenu' => 'required',
-            ]
-        );
-
-        $commentaire->titre = $request->titre;
-        $commentaire->contenu = $request->contenu;
-        $commentaire->valide = 0;
-
+        $commentaire->valide=1;
         $commentaire->save();
-
-        return redirect()->route('commentaires.index');
+        return redirect()->route('oeuvres.show', ['oeuvre' => $commentaire->oeuvre_id]);
     }
 
     /**
