@@ -1,7 +1,7 @@
 <nav>
-    
+
     <ul>
-        
+
         @guest
             <a href='/' class="logo">
             <img src="/storage/images/images/logo.PNG">
@@ -10,8 +10,6 @@
             <li><a href="{{ route('register') }}">Inscris-toi</a></li>
         @else
             <li><a href="{{route('users.show',Auth::user()->id)}}">Profil</a></li>
-            <li><a href="{{route('oeuvres.index')}}">Oeuvres</a></li>
-
             <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.
           getElementById('logout-form').submit();">
                     Logout

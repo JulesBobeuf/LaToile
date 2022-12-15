@@ -22,6 +22,14 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::get('/equipe', function () {
+    return view('equipe');
+})->name('equipe');
+
+Route::get('/edito', function () {
+    return view('edito');
+})->name('edito');
+
 
 Route::resource('/salles', \App\Http\Controllers\SalleController::class);
 Route::resource('/oeuvres', \App\Http\Controllers\OeuvreController::class);
