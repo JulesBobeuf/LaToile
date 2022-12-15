@@ -4,6 +4,13 @@
 
 @section('content')
 
+
+        @guest
+            header("{{route('login')}}");
+        @else
+        @endguest
+
+
 <div class="back">
     <a href="{{route('salles.index')}}"><i class='bx bx-left-arrow-circle' ></i></a>
 </div>
@@ -27,7 +34,20 @@
         <div class='grid'>
             <div class='grid1'>
                 <form class="valider" action="{{route('salles.show',$salle->id)}}" method="get">
-                <a href="{{route('oeuvres.create')}}">Créer une oeuvre</a>
+
+
+        @guest
+        <a href="{{route('login')}}">Connectez vous pour ajouter une oeuvre</a>
+        @else
+        <a href="{{route('oeuvres.create')}}">Créer une oeuvre</a>
+        @endguest
+
+                
+
+
+
+
+
                     <select class="selectvalider" name="cat">
                         @foreach($categoriesOeuvres as $categorie)
                             <option value="{{$categorie}}" @if($cat == $categorie) selected @endif>{{$categorie}}</option>
@@ -39,7 +59,7 @@
                     <div class='oeuvre'>
                         <img src="{{asset("/storage/".$oeuvre->media_url)}}">
                         <h1> {{$oeuvre['nom']}} </h1>
-                        <a href="{{route('oeuvres.show',$oeuvre->id,$oeuvre->auteur)}}"> {{$oeuvre['auteur']}}</a>
+                         {{$oeuvre['auteur']}}
                         <div><p class="descriptionoeuvre">{{$oeuvre['description']}}</p></div>
 
                         <p>{{$oeuvre['date_creation']}} </p>
