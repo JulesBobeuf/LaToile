@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <link rel="shortcut icon" type="logo" href="/build/assets/logo.PNG" />
+    <link href="/css/index.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css"/>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -19,8 +21,6 @@
 
     <link rel="stylesheet" href="/css/dark.css"/>
 
-    <!-- Scripts -->
-    @vite(['resources/scss/app.scss','resources/css/app.css','resources/js/app.js'])
 </head>
 <body>
 @include('layouts.header')
