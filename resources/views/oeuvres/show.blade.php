@@ -9,17 +9,25 @@
         @else
             <h3>{{$oeuvre->nomOeuvre}}</h3>
         @endif
-        <hr class="mt-2 mb-2">
-    </div>
-    <div>
-    <li> Nom : {{$oeuvre['nom']}} <br> media_url : {{$oeuvre['media_url']}} <br> thumbnail_url : {{$oeuvre['thumbnail_url']}} <br> description : {{$oeuvre['description']}}
-        <br> coord_x : {{$oeuvre['coord_x']}} <br> coord_y : {{$oeuvre['coord_y']}} <br> salle_id : {{$oeuvre['salle_id']}} <br> auteur : {{$oeuvre['auteur']}}
-        <br> date_creation : {{$oeuvre['date_creation']}}  <br> style : {{$oeuvre['style']}}  <br> valide : {{$oeuvre['valide']}}  <br> likes : {{$nbLikes}} <br>
+        
     </div>
     <p> media </p>
-        <img src=" {{asset("/storage/".$oeuvre->media_url)}}" height="100" width="100">
-    <p> thumbnail </p>
-        <img src="{{asset("/storage/".$oeuvre->thumbnail_url)}}" height="100" width="100">
+        <img src=" {{asset("/storage/".$oeuvre->media_url)}}">
+    <div>
+    <li> 
+        Nom : {{$oeuvre['nom']}} 
+        auteur : {{$oeuvre['auteur']}}
+        date_creation : {{$oeuvre['date_creation']}}
+         <p class="description"> {{$oeuvre['description']}}</p>
+        
+          
+        style : {{$oeuvre['style']}}  
+        valide : {{$oeuvre['valide']}}  
+        likes : {{$nbLikes}} 
+        <a href="{{$oeuvre['media_url']}}">media url</a> 
+    </li>
+    </div>
+
 
     <h4> Liste des commentaires de l'oeuvre</h4>
 

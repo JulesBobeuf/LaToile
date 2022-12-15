@@ -58,8 +58,14 @@ ul{
     flex-direction: column;
   }
 
-  .titre{
+  .titre1{
     display: none;
+  }
+  .titre1.active{
+    display: block;
+    position: relative;
+    top: 7rem;
+    width: 10rem;
   }
 
   .grid {
@@ -90,6 +96,7 @@ ul{
 h1{
     font-size: 7vw;
     margin: 0;
+    margin-top: -5rem; 
     text-align: center;
     color: #103778;
 }
@@ -177,10 +184,10 @@ label{
   }
 
   .ronds{
-    margin-left: 10rem;
-    top: 10rem;
-    width: 54rem;
     display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
 
   }
   .round{
@@ -193,26 +200,29 @@ label{
     border-radius: 50%;
     display: grid;
   }
-  .a{
-    transform: translate(0rem, 5rem);
+  .a1{
+    transform: translate(0rem, 4rem);
  
   }
  
-  .c{
-    transform: translate(0rem, 5rem);
+  .a3{
+    transform: translate(0rem, 4rem);
   }
-  .e{
-    transform: translate(0rem, 5rem);
+  .a5{
+    transform: translate(0rem, 4rem);
   }
-  .a::after{
-    content:url(/images/lineup.svg);
-  }
+
   .trajet img{
     position: absolute;
     z-index: -1;
     top: 1rem;
     left: 11rem;
     width: 51rem;
+  }
+  .ronds img{
+    width: 10%;
+    position: relative;
+    top: 2rem;
   }
 }
 
