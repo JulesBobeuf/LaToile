@@ -10,6 +10,16 @@
   margin:0 auto;
   min-height:10rem
   }
+  .containermentions{
+    display:flex;
+    flex-direction:column;
+    width:50vw;
+    margin:0 auto;
+    min-height:10rem
+    }
+    .mentionslegales h1{
+      font-size: 2rem;
+    }
   
   .welcome{
   display:flex;
@@ -86,6 +96,7 @@
       flex-direction: column;
     }
     li>a{
+      width: 12rem;   
       color: #E3371E;
       text-align: center;
       font-size: 1.5vw;
@@ -166,14 +177,16 @@
       color: #103778;
     }
   
-  
+  .mentionslegales{
+    font-family: 'poppins';
+  }
   
   .logo{
       flex-grow: 1;
-      margin-left: 2.5rem;  
+      margin-left: 3rem;  
   }
   .logo img{
-      width: 10%;
+      width: 20%;
   
   }
   
