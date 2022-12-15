@@ -7,7 +7,7 @@
 
 ### Rôle de JAKOBOWSKI Aymeric :
 
-Le rôle de Aymeric dans ce projet est : `Chef de projet` et `Validateur`.
+Le rôle de Aymeric dans ce projet est : `Validateur`.
 
     
 ### Rôle de Jules BOBEUF :
