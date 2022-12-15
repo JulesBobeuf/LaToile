@@ -49,8 +49,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class User extends Authenticatable
-{
+class User extends Authenticatable {
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -61,8 +60,15 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'email_verified_at',
         'password',
-        'avatar'
+        'avatar',
+        'admin',
+        'remember_token',
+        'created_at',
+        'updated_at',
+        'two_factor_secret',
+        'two_factor_recovery_codes'
     ];
 
     /**
@@ -90,6 +96,5 @@ class User extends Authenticatable
 
     public function commentaires() {
         return $this->hasMany(Commentaire::class);
-
     }
 }
