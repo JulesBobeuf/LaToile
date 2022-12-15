@@ -17,36 +17,16 @@
     <div>
         <li>
             <h1> {{$oeuvre['nom']}} </h1>
-            <a href="{{route('oeuvres.show',$oeuvre->id,$oeuvre->auteur)}}"> {{$oeuvre['auteur']}}</a>, {{$oeuvre['date_creation']}}
+            <a href="{{route('oeuvres.showAuteur',['id' => $oeuvre->id,'auteur' => $oeuvre->auteur])}}"> {{$oeuvre['auteur']}}</a>, {{$oeuvre['date_creation']}}
             <p class="description"> {{$oeuvre['description']}}</p>
 
 
            {{$oeuvre['style']}}
+            <br>
             likes : {{$nbLikes}}
-            <a href="{{$oeuvre['media_url']}}">Lien de l'oeuvre</a>
         </li>
     </div>
-
-    <div class=container>
-        <div class="text-center" style="margin-top: 2rem">
-            <h3>{{$oeuvre->nomOeuvre}}</h3>
-
-        </div>
-        <img src=" {{asset("/storage/".$oeuvre->media_url)}}">
-        <div>
-            <li>
-                <h1> {{$oeuvre['nom']}} </h1>
-                {{$oeuvre['auteur']}}, {{$oeuvre['date_creation']}}
-                <p class="description"> {{$oeuvre['description']}}</p>
-
-
-                {{$oeuvre['style']}}
-                likes : {{$nbLikes}}
-                <a href="{{$oeuvre['media_url']}}">Lien de l'oeuvre</a>
-            </li>
-        </div>
-
-        <hr class="mt-2 mb-2">
+    <hr class="mt-2 mb-2">
 
         <div>
             @if (Auth::user())
@@ -77,37 +57,35 @@
             </select>
             <input type="submit" value="OK">
         </form>
-        <div>
+        </div>
             @if ($oeuvresParAuteur!= null)
                 @foreach($oeuvresParAuteur as $oeuvreParAuteur)
                     <p>Oeuvre : </p>
-                    <li> Nom : {{$oeuvreParAuteur['nom']}} <br> media_url : {{$oeuvreParAuteur['media_url']}} <br> thumbnail_url
-                        : {{$oeuvreParAuteur['thumbnail_url']}} <br> description : {{$oeuvreParAuteur['description']}}
-                        <br> coord_x : {{$oeuvreParAuteur['coord_x']}} <br> coord_y : {{$oeuvreParAuteur['coord_y']}} <br> salle_id
-                        : {{$oeuvreParAuteur['salle_id']}} <br> auteur : {{$oeuvreParAuteur['auteur']}}</a>
-                        <br> date_creation : {{$oeuvreParAuteur['date_creation']}} <br> style : {{$oeuvreParAuteur['style']}} <br> valide
-                        : {{$oeuvreParAuteur['valide']}} <br>
-                @endforeach
-            @endif
-        </div>
-        @if(Auth::user())
-            <a href="{{route('commentaires.create', ["oeuvre_id" => $oeuvre->id])}}">
-                <button>Ecrire un commentaire</button>
-            </a>
-        @endif
-
-        @foreach( $commentaires as $commentaire)
-            <li><h2> {{$commentaire['titre']}}</h2> <br> {{$commentaire['contenu']}} <br> User-Id
-                : {{$commentaire['user_id']}}
-                @if ($commentaire->valide==false)
-                    <form action="{{route('approuvecommentaire', $commentaire->id)}}" method="post">
-                        @csrf
-                        <p>Approuver ce commentaire </p>
-                        <input type="submit" value="approuver"/>
-                    </form>
-            @endif
+            <li> Nom : {{$oeuvreParAuteur['nom']}} <br> media_url : {{$oeuvreParAuteur['media_url']}}
+                <br> description : {{$oeuvreParAuteur['description']}}
+                <br> auteur : {{$oeuvreParAuteur['auteur']}}</a>
+                <br> date_creation : {{$oeuvreParAuteur['date_creation']}} <br> style : {{$oeuvreParAuteur['style']}} <br>
+            </li>
         @endforeach
+    @endif
+    </div>
+    @if(Auth::user())
+        <a href="{{route('commentaires.create', ["oeuvre_id" => $oeuvre->id])}}">
+            <button>Ecrire un commentaire</button>
+        </a>
+    @endif
 
+    @foreach( $commentaires as $commentaire)
+        <li><h2> {{$commentaire['titre']}}</h2> <br> {{$commentaire['contenu']}} <br> User-Id
+            : {{$commentaire['user_id']}}
+            @if ($commentaire->valide==false)
+                <form action="{{route('approuvecommentaire', $commentaire->id)}}" method="post">
+                    @csrf
+                    <p>Approuver ce commentaire </p>
+                    <input type="submit" value="approuver"/>
+                </form>
+        @endif
+    @endforeach
+
+</div>
     </div>
-    </div>
-@endsection

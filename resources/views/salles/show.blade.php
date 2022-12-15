@@ -11,7 +11,7 @@
 
 <div class='content'>
     <div class="oeuvres">
-       
+
         @if($salle->id==1)
         <img src="{{asset('/images/arretpixel.png')}}" />
         @elseif($salle->id==2)
@@ -59,7 +59,7 @@
 
         </div>
                 <div class="retour">
-                    
+
                 @if($salle->id==5)
                     <a href="{{route('salles.index')}}">
                     <p class="button is-info">Terminus<i class='bx bx-right-arrow-circle' ></i></p>
@@ -69,7 +69,7 @@
                         <p class="button is-info">Arrêt suivant<i class='bx bx-right-arrow-circle' ></i></p>
                         </a>
 
-            
+
 
                 @endif
                 </div>
