@@ -18,17 +18,9 @@ Route::get('/', function () {
 })->name('accueil');
 
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
-
-Route::get('/equipe', function () {
-    return view('equipe');
-})->name('equipe');
-
-Route::get('/edito', function () {
-    return view('edito');
-})->name('edito');
+Route::get('/apropos', function () {
+    return view('apropos');
+})->name('apropos');
 
 
 Route::resource('/salles', \App\Http\Controllers\SalleController::class);
