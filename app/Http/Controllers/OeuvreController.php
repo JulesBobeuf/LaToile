@@ -106,7 +106,7 @@ class OeuvreController extends Controller
     public function show(Request $request, $id) {
         $user = Auth::id();
         $oeuvre = Oeuvre::find($id);
-        $nbLikes = DB::table('likes')->where('oeuvre_id','=',$oeuvre->id)->count();
+        $nbLikes = $oeuvre->likes->count();
         $categories = array('Recent','Ancien');
         $cat = $request->input('cat', 'All');
         $like = DB::table('likes')->where('oeuvre_id','=',$oeuvre->id)->where('user_id','=',$user)->exists();
