@@ -109,6 +109,7 @@ class OeuvreController extends Controller
         $nbLikes = DB::table('likes')->where('oeuvre_id','=',$oeuvre->id)->count();
         $categories = array('Recent','Ancien');
         $cat = $request->input('cat', 'All');
+        $auteurs = Oeuvre::distinct('auteur')->pluck('auteur');
         $like = DB::table('likes')->where('oeuvre_id','=',$oeuvre->id)->where('user_id','=',$user)->exists();
         if ($cat=='Ancien') {
             $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortByDesc('created_at');
@@ -116,7 +117,7 @@ class OeuvreController extends Controller
         else {
             $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortBy('created_at');
         }
-        return view('oeuvres.show', ['oeuvre' => $oeuvre, 'commentaires' => $commentaires, 'nbLikes' => $nbLikes, 'categories' => $categories, 'cat' => $cat, "like" => $like]);
+        return view('oeuvres.show', ['oeuvre' => $oeuvre, 'commentaires' => $commentaires, 'nbLikes' => $nbLikes, 'categories' => $categories, 'cat' => $cat, "like" => $like , 'auteurs' => $auteurs]);
     }
 
     /**

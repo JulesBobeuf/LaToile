@@ -68,6 +68,16 @@
         <input type="submit" value="OK">
     </form>
 
+    <form action="{{route('oeuvres.show',$oeuvre->id)}}" method="get">
+        <select name="cat">
+            <option value="All" @if($cat == $oeuvre->$auteurs) selected @endif>-- Filtrage --</option>
+            @foreach($auteurs as $auteur)
+                <option value="{{$auteur}}" @if($cat == $auteur) selected @endif>{{$auteur}}</option>
+            @endforeach
+        </select>
+        <input type="submit" value="OK">
+    </form>
+
     @if(Auth::user())
         <a href="{{route('commentaires.create', ["oeuvre_id" => $oeuvre->id])}}">
             <button>Ecrire un commentaire</button>
