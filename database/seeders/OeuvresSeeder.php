@@ -28,7 +28,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'Pixel',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Olivier Huard',
             'salle_id' => '1',
         ])->create();
@@ -42,7 +42,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'Pixel',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Olivier Huard',
             'salle_id' => '1',
         ])->create();
@@ -56,7 +56,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'Pixel',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Olivier Huard',
             'salle_id' => '1',
         ])->create();
@@ -70,7 +70,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'Pixel',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Antoine Lendrevie',
             'salle_id' => '1',
         ])->create();
@@ -84,7 +84,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'Pixel',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Antoine Lendrevie',
             'salle_id' => '1',
         ])->create();
@@ -98,7 +98,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'OeuvreIA',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Obvious art',
             'salle_id' => '2',
         ])->create();
@@ -112,7 +112,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'OeuvreIA',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Obvious art',
             'salle_id' => '2',
         ])->create();
@@ -126,7 +126,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'OeuvreIA',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Obvious art',
             'salle_id' => '2',
         ])->create();
@@ -140,7 +140,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'OeuvreIA',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Obvious art',
             'salle_id' => '2',
         ])->create();
@@ -154,7 +154,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'OeuvreIA',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Obvious art',
             'salle_id' => '2',
         ])->create();
@@ -168,7 +168,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'Rendu3D',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Quentin Deronzier',
             'salle_id' => '3',
         ])->create();
@@ -182,7 +182,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'Rendu3D',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Marius Longo',
             'salle_id' => '3',
         ])->create();
@@ -196,7 +196,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'Rendu3D',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Quentin Deronzier',
             'salle_id' => '3',
         ])->create();
@@ -210,7 +210,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'Rendu3D',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Yvan Feusi',
             'salle_id' => '3',
         ])->create();
@@ -224,7 +224,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'Rendu3D',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Samylacrapule',
             'salle_id' => '3',
         ])->create();
@@ -238,7 +238,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'FlatDesign',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Malika Favre',
             'salle_id' => '4',
         ])->create();
@@ -252,7 +252,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'FlatDesign',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Malika Favre',
             'salle_id' => '4',
         ])->create();
@@ -266,7 +266,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'FlatDesign',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Malika Favre',
             'salle_id' => '4',
         ])->create();
@@ -280,7 +280,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'FlatDesign',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Malika Favre',
             'salle_id' => '4',
         ])->create();
@@ -294,7 +294,7 @@ class OeuvresSeeder extends Seeder {
             'style' => 'FlatDesign',
             'coord_x' => '0',
             'coord_y' => '0',
-            'valide' =>'true',
+            'valide' =>'1',
             'auteur' => 'Malika Favre',
             'salle_id' => '4',
         ])->create();
