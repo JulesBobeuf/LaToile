@@ -1,8 +1,6 @@
 @extends('layouts.appV2')
 
 @section('content')
-
-    @include("_errors")
 <div class="login">
     <form action="{{route('login')}}" method="post">
         @csrf
