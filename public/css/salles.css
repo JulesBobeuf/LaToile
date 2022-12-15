@@ -229,6 +229,7 @@ label{
 
   .descrioeuvre1{
     opacity: 0%; 
+    font-family: Arial, Helvetica, sans-serif;
     
 
     position: absolute;
@@ -243,20 +244,22 @@ label{
     padding: 1rem;
     border: 5px solid grey;
     font-size: 1rem;
+    z-index: 2;
     
     
     transition: opacity 1s ease-in-out;
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 30%;
     width: 40vw;
   }
 
   .descrioeuvre2{
     opacity: 0%; 
+    font-family: Arial, Helvetica, sans-serif;
     
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 30%;
     width: 40vw;
   }
@@ -267,19 +270,21 @@ label{
     padding: 1rem;
     border: 5px solid grey;
     font-size: 1rem;
+    z-index: 2;
     
     transition: opacity 1s ease-in-out;
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 30%;
     width: 40vw;
   }
 
   .descrioeuvre3{
     opacity: 0%; 
-    
+    font-family: Arial, Helvetica, sans-serif;
+
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 30%;
     width: 40vw;
   }
@@ -290,19 +295,21 @@ label{
     padding: 1rem;
     border: 5px solid grey;
     font-size: 1rem;
+    z-index: 2;
     
     transition: opacity 1s ease-in-out;
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 30%;
     width: 40vw;
   }
 
   .descrioeuvre4{
     opacity: 0%; 
-    
+    font-family: Arial, Helvetica, sans-serif;
+
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 30%;
     width: 40vw;
   }
@@ -313,19 +320,21 @@ label{
     padding: 1rem;
     border: 5px solid grey;
     font-size: 1rem;
+    z-index: 2;
     
     transition: opacity 1s ease-in-out;
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 30%;
     width: 40vw;
   }
 
   .descrioeuvre5{
     opacity: 0%; 
-    
+    font-family: Arial, Helvetica, sans-serif;
+
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 30%;
     width: 40vw;
   }
@@ -336,10 +345,11 @@ label{
     padding: 1rem;
     border: 5px solid grey;
     font-size: 1rem;
+    z-index: 2;
     
     transition: opacity 1s ease-in-out;
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 30%;
     width: 40vw;
   }

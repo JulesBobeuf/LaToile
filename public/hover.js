@@ -40,12 +40,12 @@ function display1(x) {
   }
 
   function display5(x) {
-    x = document.querySelector('.descrioeuvre4')
+    x = document.querySelector('.descrioeuvre5')
     x.classList.toggle('active');
   
   }
   function nodisplay5(x) {
-    x = document.querySelector('.descrioeuvre4')
+    x = document.querySelector('.descrioeuvre5')
     x.classList.toggle('active');
   }
 

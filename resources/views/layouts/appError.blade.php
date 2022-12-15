@@ -10,7 +10,7 @@
 
     <!-- Fonts -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css2?family=Passion+One&display=swap" rel="stylesheet">
+    <link href="{{asset('https://fonts.googleapis.com/css2?family=Passion+One&family=Poppins&display=swap')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <!-- Scripts -->

@@ -3,29 +3,32 @@
 @section('title', 'show oeuvre')
 
 @section('content')
+
+<div class="retour">
+    <a href="/salles/{{$oeuvre->salle_id}}"><i class='bx bx-left-arrow-circle' ></i></a>
+</div>
+
+<div class=container>
     <div class="text-center" style="margin-top: 2rem">
         <h3>{{$oeuvre->nomOeuvre}}</h3>
 
     </div>
-    <p> media </p>
     <img src=" {{asset("/storage/".$oeuvre->media_url)}}">
     <div>
         <li>
-            Nom : {{$oeuvre['nom']}}
-            auteur : {{$oeuvre['auteur']}}
-            date_creation : {{$oeuvre['date_creation']}}
+            <h1> {{$oeuvre['nom']}} </h1>
+             {{$oeuvre['auteur']}}, {{$oeuvre['date_creation']}}
             <p class="description"> {{$oeuvre['description']}}</p>
 
 
-            style : {{$oeuvre['style']}}
-            valide : {{$oeuvre['valide']}}
+           {{$oeuvre['style']}}
             likes : {{$nbLikes}}
-            <a href="{{$oeuvre['media_url']}}">media url</a>
+            <a href="{{$oeuvre['media_url']}}">Lien de l'oeuvre</a>
         </li>
     </div>
 
     <hr class="mt-2 mb-2">
-    </div>
+    
     <div>
         @if (Auth::user())
             @if (!$like)
@@ -43,20 +46,8 @@
             @endif
         @endif
     </div>
-    <div>
-        <li> Nom : {{$oeuvre['nom']}} <br> media_url : {{$oeuvre['media_url']}} <br> thumbnail_url
-            : {{$oeuvre['thumbnail_url']}} <br> description : {{$oeuvre['description']}}
-            <br> coord_x : {{$oeuvre['coord_x']}} <br> coord_y : {{$oeuvre['coord_y']}} <br> salle_id
-            : {{$oeuvre['salle_id']}} <br> auteur : {{$oeuvre['auteur']}}
-            <br> date_creation : {{$oeuvre['date_creation']}} <br> style : {{$oeuvre['style']}} <br> valide
-            : {{$oeuvre['valide']}} <br> likes : {{$nbLikes}} <br>
-    </div>
-    <p> media </p>
-    <img src=" {{asset("/storage/".$oeuvre->media_url)}}" height="100" width="100">
-    <p> thumbnail </p>
-    <img src="{{asset("/storage/".$oeuvre->thumbnail_url)}}" height="100" width="100">
 
-    <h4> Liste des commentaires de l'oeuvre</h4>
+    <h3>Commentaires</h3>
 
     <form action="{{route('oeuvres.show',$oeuvre->id)}}" method="get">
         <select name="cat">
@@ -75,7 +66,7 @@
     @endif
 
     @foreach( $commentaires as $commentaire)
-        <li> Nom : {{$commentaire['titre']}} <br> Texte : {{$commentaire['contenu']}} <br> User-Id
+        <li><h2> {{$commentaire['titre']}}</h2> <br> {{$commentaire['contenu']}} <br> User-Id
             : {{$commentaire['user_id']}}
             @if ($commentaire->valide==false)
                 <form action="{{route('approuvecommentaire', $commentaire->id)}}" method="post">
@@ -85,5 +76,7 @@
                 </form>
         @endif
     @endforeach
-
+  
+</div>
+</div>
 @endsection

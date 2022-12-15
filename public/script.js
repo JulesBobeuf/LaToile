@@ -1,15 +1,15 @@
 const options = {
-    bottom: '28rem', // default: '32px'
+    bottom: '15rem', // default: '32px'
     right: '2rem', // default: '32px'
     left: 'unset', // default: 'unset'
     time: '0.5s', // default: '0.3s'
     mixColor: 'white', // default: '#fff'
-    backgroundColor: '#fff',  // default: '#fff'
+    backgroundColor: '#F9F3E5',  // default: '#fff'
     buttonColorDark: '#100f2c',  // default: '#100f2c'
-    buttonColorLight: '#fff', // default: '#fff'
+    buttonColorLight: '#F9F3E5', // default: '#fff'
     saveInCookies: true, // default: true,
     label: '🌓', // default: ''
-    autoMatchOsTheme: true // default: true
+    autoMatchOsTheme: false // default: true
 }
 
 const darkmode = new Darkmode(options);
