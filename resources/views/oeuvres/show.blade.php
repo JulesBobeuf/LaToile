@@ -17,7 +17,7 @@
     <div>
         <li>
             <h1> {{$oeuvre['nom']}} </h1>
-             {{$oeuvre['auteur']}}, {{$oeuvre['date_creation']}}
+            <a href="{{route('oeuvres.show',$oeuvre->id,$oeuvre->auteur)}}"> {{$oeuvre['auteur']}}</a>, {{$oeuvre['date_creation']}}
             <p class="description"> {{$oeuvre['description']}}</p>
 
 

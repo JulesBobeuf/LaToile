@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="retour">
-    <a href="/"><i class='bx bx-left-arrow-circle' ></i></a>
+    <a href="{{route('accueil')}}"><i class='bx bx-left-arrow-circle' ></i></a>
 </div>
 
 <h1>Choisis ton arrêt</h1>
