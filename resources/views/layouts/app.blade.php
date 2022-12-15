@@ -17,6 +17,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
+    <link rel="stylesheet" href="/css/dark.css"/>
+
     <!-- Scripts -->
     @vite(['resources/scss/app.scss','resources/css/app.css','resources/js/app.js'])
 </head>
