@@ -22,7 +22,7 @@
 
         Nous avons choisi la date du 21 avril pour honorer la journée de la créativité et plus particulièrement la créativité dans le monde du numérique. La créativité et la France sont le point névralgique de notre exposition. </br>Elle sera en ligne pendant 1 an et contiendra à des dates définies des « expositions capsules qu’on appellera Arrêt surprise » qui mettra à l’honneur pendant un temps défini un artiste ou un art numérique bien précis.
     </p>
-    </div>
+    
 
     <div class="edito">
         <h3> l'équipe </h3>
@@ -40,6 +40,6 @@
         <video></video>
 
     </div>
-
+    </div>
 
 @endsection
