@@ -99,12 +99,20 @@
     .connexion {
         color:#F9F3E5;
         background-color: #E3371E;
+        border: none;
+        width: 100%;
     }
 
     form{
         max-width: 100%;
         text-align: center;
         margin-left: auto; margin-right:auto;
+    }
+
+    textarea {
+        border: none;
+        margin-top: 10px;
+        width: 100%;
     }
 
     }
