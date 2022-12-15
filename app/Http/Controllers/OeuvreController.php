@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Commentaire;
 use App\Models\Oeuvre;
+use App\Models\Salle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -58,7 +59,6 @@ class OeuvreController extends Controller
                 'auteur' => 'required',
                 'date_creation' => 'required',
                 'style' => 'required',
-                'valide' => 'required',
             ]
         );
 
@@ -68,11 +68,11 @@ class OeuvreController extends Controller
         $oeuvre->description = $request->description;
         $oeuvre->coord_x = $request->coord_x;
         $oeuvre->coord_y = $request->coord_y;
-        $oeuvre->salle_id = 4;
+        $oeuvre->salle_id = 5;
         $oeuvre->auteur = $request->auteur;
         $oeuvre->date_creation = $request->date_creation;
         $oeuvre->style = $request->style;
-        $oeuvre->valide = $request->valide;
+        $oeuvre->valide = 0;
 
         if ($request->hasFile('media') && $request->file('media')->isValid()) {
             $file = $request->file('media');
@@ -103,10 +103,17 @@ class OeuvreController extends Controller
      * @param \App\Models\Oeuvre $oeuvres
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id) {
+    public function show(Request $request, $id, $auteur = null) {
+        if ($auteur!=null) {
+            $oeuvresParAuteur = Oeuvre::all()->where('auteur','=',$auteur);
+        }
+        else {
+            $oeuvresParAuteur = null;
+        }
         $user = Auth::id();
         $oeuvre = Oeuvre::find($id);
-        $nbLikes = DB::table('likes')->where('oeuvre_id','=',$oeuvre->id)->count();
+
+        $nbLikes = $oeuvre->likes->count();
         $categories = array('Recent','Ancien');
         $cat = $request->input('cat', 'All');
         $auteurs = Oeuvre::distinct('auteur')->pluck('auteur');
@@ -117,7 +124,15 @@ class OeuvreController extends Controller
         else {
             $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortBy('created_at');
         }
-        return view('oeuvres.show', ['oeuvre' => $oeuvre, 'commentaires' => $commentaires, 'nbLikes' => $nbLikes, 'categories' => $categories, 'cat' => $cat, "like" => $like , 'auteurs' => $auteurs]);
+        return view('oeuvres.show', [
+            'oeuvre' => $oeuvre,
+            'commentaires' => $commentaires,
+            'nbLikes' => $nbLikes,
+            'categories' => $categories,
+            'cat' => $cat,
+            "like" => $like,
+            'oeuvresParAuteur' => $oeuvresParAuteur
+        ]);
     }
 
     /**
@@ -144,6 +159,14 @@ class OeuvreController extends Controller
         $oeuvre->lienOeuvre = $request->lienOeuvre;
         $oeuvre->save();
         return redirect()->route('oeuvres.index');
+    }
+
+
+    public function approuveOeuvre($id) {
+        $oeuvre = Oeuvre::find($id);
+        $oeuvre->valide=1;
+        $oeuvre->save();
+        return redirect()->route('salles.show', ['salle' => Salle::find(5)]);
     }
 
     /**

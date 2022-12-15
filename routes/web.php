@@ -18,9 +18,13 @@ Route::get('/', function () {
 })->name('accueil');
 
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+Route::get('/apropos', function () {
+    return view('apropos');
+})->name('apropos');
+
+Route::get('/mentions', function () {
+    return view('mentions');
+})->name('mentions');
 
 
 Route::resource('/salles', \App\Http\Controllers\SalleController::class);
@@ -33,3 +37,5 @@ Route::post('/users/{id}', [\App\Http\Controllers\UserController::class,'update'
 Route::resource('/commentaires', \App\Http\Controllers\CommentaireController::class) ->except('create');
 Route::post('/commentaires/{id}', [\App\Http\Controllers\CommentaireController::class,'update'])->name('approuvecommentaire');
 Route::get('/commentaires/create/{oeuvre_id}', [\App\Http\Controllers\CommentaireController::class, 'create'])->name('commentaires.create');
+Route::post('/oeuvres/approuver/{id}', [\App\Http\Controllers\OeuvreController::class,'approuveOeuvre'])->name('approuveoeuvre');
+Route::get('/oeuvres/{id}/{auteur}', [\App\Http\Controllers\OeuvreController::class, 'show'])->name('oeuvres.showAuteur');

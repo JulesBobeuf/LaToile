@@ -52,8 +52,11 @@
   }
   
   /* ronds menu nav */
-  
+  nav{
+    min-height: 5rem;
+  }
   ul{
+
       display: flex;
       justify-content: space-around;
       padding: 0 2vw;
@@ -84,14 +87,15 @@
     }
     li>a{
       color: #E3371E;
-      padding-left: 4vw;
+      text-align: center;
       font-size: 1.5vw;
+      padding: 0.8rem;
     }
     li>a:hover{
-      color: #E3371E;
-      margin-left: 3vw;
+      background-color: #E3371E;
+      color:#F9F3E5;
+      text-align: center;
       font-size: 1.5vw;
-      padding: 0.5vw;
     }
   
     .grid {
@@ -166,6 +170,7 @@
   
   .logo{
       flex-grow: 1;
+      margin-left: 2.5rem;  
   }
   .logo img{
       width: 10%;
@@ -173,8 +178,9 @@
   }
   
   .metro{
+      z-index: -1;
       position: absolute;    
-      margin-top: 2rem;
+      margin-top: 1rem;
       width: 500vw;
       /*-77.27 transform: translate(50rem);
       transition: transform 10s; */
@@ -198,7 +204,7 @@
   
   i:hover{
       font-size: 12vw;
-      transition: font-size 1s;
+      transition: font-size 0.5s ease-in-out;
   }
   
   

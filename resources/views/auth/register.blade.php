@@ -1,7 +1,6 @@
 @extends('layouts.appV2')
 
 @section('content')
-
 <div class="login">
     @include("_errors")
     <form action="{{route('register')}}" method="post">
