@@ -13,11 +13,11 @@
             Une exposition d'art numérique 100% française.
             </h1>
         </div>
-    
+
 
     <a class="forward" href="{{route('salles.index')}}"><i class='bx bx-right-arrow-circle' ></i></a>
     </div>
-    
+
 </div>
 
 
@@ -26,7 +26,7 @@
 </div>
 
 <div class="mentions" id="mentionscolor">
-        <a href="mentions">mentions légales</a>
+        <a href="{{route('mentions')}}">mentions légales</a>
     </div>
 
 @endsection

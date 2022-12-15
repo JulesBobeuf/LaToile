@@ -3,5 +3,9 @@
 @section('title', 'Mentions légales')
 
 @section('content')
-    <div>A propos</div>
+
+<div>
+    Mentions
+</div>
+
 @endsection
