@@ -1,6 +1,6 @@
 const options = {
-    bottom: '60px', // default: '32px'
-    right: '20px', // default: '32px'
+    bottom: '21rem', // default: '32px'
+    right: '2rem', // default: '32px'
     left: 'unset', // default: 'unset'
     time: '0.5s', // default: '0.3s'
     mixColor: 'white', // default: '#fff'
