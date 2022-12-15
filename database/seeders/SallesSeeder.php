@@ -14,11 +14,35 @@ class SallesSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        Salle::factory(4)->create();
+
+        Salle::factory()->create([
+            'nom' => 'Art du pixel',
+            'theme' => 'Art du pixel',
+            'description' => ''
+        ]);
+
+        Salle::factory()->create([
+            'nom' => 'Oeuvre IA',
+            'theme' => 'Oeuvre IA',
+            'description' => ''
+        ]);
+
+        Salle::factory()->create([
+            'nom' => 'Rendu 3D',
+            'theme' => 'Rendu 3D',
+            'description' => ''
+        ]);
+
+        Salle::factory()->create([
+            'nom' => 'Flat design',
+            'theme' => 'Flat design',
+            'description' => ''
+        ]);
+
         Salle::factory()->create([
             'nom' => 'Outdoor',
             'theme' => 'Libre',
-            'description' => '<p>Salle réservée aux visiteurs qui souhaitent faire connaitre de nouveaux artistes...</p>'
+            'description' => 'Salle réservée aux visiteurs qui souhaitent faire connaitre de nouveaux artistes...'
         ]);
     }
 }
