@@ -103,9 +103,16 @@ class OeuvreController extends Controller
      * @param \App\Models\Oeuvre $oeuvres
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id) {
+    public function show(Request $request, $id, $auteur = null) {
+        if ($auteur!=null) {
+            $oeuvresParAuteur = Oeuvre::all()->where('auteur','=',$auteur);
+        }
+        else {
+            $oeuvresParAuteur = null;
+        }
         $user = Auth::id();
         $oeuvre = Oeuvre::find($id);
+
         $nbLikes = $oeuvre->likes->count();
         $categories = array('Recent','Ancien');
         $cat = $request->input('cat', 'All');
@@ -116,7 +123,15 @@ class OeuvreController extends Controller
         else {
             $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortBy('created_at');
         }
-        return view('oeuvres.show', ['oeuvre' => $oeuvre, 'commentaires' => $commentaires, 'nbLikes' => $nbLikes, 'categories' => $categories, 'cat' => $cat, "like" => $like]);
+        return view('oeuvres.show', [
+            'oeuvre' => $oeuvre,
+            'commentaires' => $commentaires,
+            'nbLikes' => $nbLikes,
+            'categories' => $categories,
+            'cat' => $cat,
+            "like" => $like,
+            'oeuvresParAuteur' => $oeuvresParAuteur
+        ]);
     }
 
     /**
