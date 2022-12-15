@@ -4,9 +4,9 @@
 
 @section('content')
 
-                @guest
-                <a href="{{route('login')}}">Connectez vous pour accéder à la page 5</a>
-                @else
+
+        
+                
                 
 
 
@@ -30,6 +30,9 @@
         <img src="{{asset('/images/arret.png')}}" />
         @endif
 
+
+        
+        
         <div class='grid'>
             <div class='grid1'>
                 <form class="valider" action="{{route('salles.show',$salle->id)}}" method="get">
@@ -118,5 +121,4 @@ scrollContainer.addEventListener("wheel", (evt) => {
 });
 </script>
 
-@endguest
 @endsection
