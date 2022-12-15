@@ -78,9 +78,9 @@ ul{
 }
 
 .oeuvre{
-    width: 82vw;
+    width: 41vw;
     white-space: normal;
-    /* margin: 0 10vw; */
+    margin: 0 10vw;
 }
 
 
@@ -155,8 +155,9 @@ label{
 
 
 .oeuvre img{
+    object-fit: contain;
     width: 100%;
-    max-height: 35rem;
+    max-height: 30rem;
 }
 
 
@@ -169,6 +170,7 @@ label{
 }
 
 .button{
+    cursor: pointer;
     font-family: 'Passion One';
     font-size: 2rem;
     width: 20rem;
