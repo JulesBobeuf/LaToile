@@ -22,6 +22,10 @@ Route::get('/apropos', function () {
     return view('apropos');
 })->name('apropos');
 
+Route::get('/mentions', function () {
+    return view('mentions');
+})->name('mentions');
+
 
 Route::resource('/salles', \App\Http\Controllers\SalleController::class);
 Route::resource('/oeuvres', \App\Http\Controllers\OeuvreController::class);
