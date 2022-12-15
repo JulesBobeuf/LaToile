@@ -17,7 +17,7 @@
     <div>
         <li>
             <h1> {{$oeuvre['nom']}} </h1>
-            <a href="{{route('oeuvres.show',$oeuvre->id,$oeuvre->auteur)}}"> {{$oeuvre['auteur']}}</a>, {{$oeuvre['date_creation']}}
+            <a href="{{route('oeuvres.showAuteur',['id' => $oeuvre->id,'auteur' => $oeuvre->auteur])}}"> {{$oeuvre['auteur']}}</a>, {{$oeuvre['date_creation']}}
             <p class="description"> {{$oeuvre['description']}}</p>
 
 
@@ -28,7 +28,7 @@
     </div>
 
     <hr class="mt-2 mb-2">
-    
+
     <div>
         @if (Auth::user())
             @if (!$like)
@@ -88,7 +88,7 @@
                 </form>
         @endif
     @endforeach
-  
+
 </div>
 </div>
 @endsection
