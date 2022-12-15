@@ -76,11 +76,11 @@ ul{
     grid-template-areas: "grid1";
 }
 .grid1 {
-    gap: 40rem;
+    gap: 20rem;
     display: flex;
     position: relative;
     grid-area: grid1;
-    padding: 5rem 5rem 1rem 5rem
+    padding: 2rem 5rem 1rem 5rem
 
 }
 
@@ -163,10 +163,26 @@ label{
 .oeuvre img{
     object-fit: contain;
     width: 100%;
-    max-height: 30rem;
+    max-height: 25rem;
+}
+.valider a{
+    margin-bottom: 3rem;
+    display: flex;
+    background-color: #103778;
+    color: #f9f3e5;
+    border: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20.8rem;
+    height: 11rem;
 }
 .valider{
-    margin-top: 19rem;
+    margin-top: 13rem;
+    position: absolute;
+    left: -4%;
+    display: flex;
+    flex-direction: column; 
 }
 .showurls{
     display: flex;
@@ -200,9 +216,10 @@ label{
     color: #F9F3E5;
     border-radius: 20.8rem;
     height: 3rem;
+    width: 29%;
 }
 .retour{
-    padding: 0rem 7rem 0rem 100rem;
+    padding: 0rem 7rem 0rem 30rem;
     display: flex;
     justify-content: center;
     align-items: center;

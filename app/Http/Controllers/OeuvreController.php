@@ -116,6 +116,7 @@ class OeuvreController extends Controller
         $nbLikes = $oeuvre->likes->count();
         $categories = array('Recent','Ancien');
         $cat = $request->input('cat', 'All');
+        $auteurs = Oeuvre::distinct('auteur')->pluck('auteur');
         $like = DB::table('likes')->where('oeuvre_id','=',$oeuvre->id)->where('user_id','=',$user)->exists();
         if ($cat=='Ancien') {
             $commentaires = Commentaire::All()->where('oeuvre_id','=',$oeuvre->id)->sortByDesc('created_at');

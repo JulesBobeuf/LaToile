@@ -4,14 +4,21 @@
 
 @section('content')
 
+
+        @guest
+            header("{{route('login')}}");
+        @else
+        @endguest
+
+
 <div class="back">
-    <a href="/salles"><i class='bx bx-left-arrow-circle' ></i></a>
+    <a href="{{route('salles.index')}}"><i class='bx bx-left-arrow-circle' ></i></a>
 </div>
 
 
 <div class='content'>
     <div class="oeuvres">
-       
+
         @if($salle->id==1)
         <img src="{{asset('/images/arretpixel.png')}}" />
         @elseif($salle->id==2)
@@ -27,6 +34,20 @@
         <div class='grid'>
             <div class='grid1'>
                 <form class="valider" action="{{route('salles.show',$salle->id)}}" method="get">
+
+
+        @guest
+        <a href="{{route('login')}}">Connectez vous pour ajouter une oeuvre</a>
+        @else
+        <a href="{{route('oeuvres.create')}}">Créer une oeuvre</a>
+        @endguest
+
+                
+
+
+
+
+
                     <select class="selectvalider" name="cat">
                         @foreach($categoriesOeuvres as $categorie)
                             <option value="{{$categorie}}" @if($cat == $categorie) selected @endif>{{$categorie}}</option>
@@ -38,7 +59,7 @@
                     <div class='oeuvre'>
                         <img src="{{asset("/storage/".$oeuvre->media_url)}}">
                         <h1> {{$oeuvre['nom']}} </h1>
-                        auteur : {{$oeuvre['auteur']}}
+                         {{$oeuvre['auteur']}}
                         <div><p class="descriptionoeuvre">{{$oeuvre['description']}}</p></div>
 
                         <p>{{$oeuvre['date_creation']}} </p>
@@ -58,7 +79,7 @@
 
         </div>
                 <div class="retour">
-                    
+
                 @if($salle->id==5)
                     <a href="{{route('salles.index')}}">
                     <p class="button is-info">Terminus<i class='bx bx-right-arrow-circle' ></i></p>
@@ -68,7 +89,7 @@
                         <p class="button is-info">Arrêt suivant<i class='bx bx-right-arrow-circle' ></i></p>
                         </a>
 
-            
+
 
                 @endif
                 </div>
