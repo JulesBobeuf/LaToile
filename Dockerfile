@@ -2,7 +2,7 @@ FROM php:8.0-cli
 
 LABEL Bobeuf Jules "bobeuf.jules@gmail.com"
 
-RUN apt-get update -y && apt-get install apt-utils && DEBIAN_FRONTEND=noninteractive apt-get install -y libmcrypt-dev nodejs apt-utils git
+RUN apt-get update -y && apt-get install apt-utils && DEBIAN_FRONTEND=noninteractive apt-get install -y libmcrypt-dev nodejs apt-utils git zip unzip
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
