@@ -1,7 +1,5 @@
 # LaToile
 
-![LaToile Screenshot](https://github.com/JulesBobeuf/LaToile/raw/main/public/images/screenshot.png)
-
 **LaToile** is a university project developed using PHP 8 and the Laravel framework. It showcases an art gallery event taking place in the French metro, following the theme of "French Numerical Art."
 
 ## About The Project
