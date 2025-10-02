@@ -1,10 +1,12 @@
-# LaToile
-
-**LaToile** is a university project developed using PHP 8 and the Laravel framework. It showcases an art gallery event taking place in the French metro, following the theme of "French Numerical Art."
+<div align="center">
+  <h1 align="center">La Toile</h1>
+  <img src="assets/readme-la-toile.png" alt="La Toile Screenshot" width="600">  <p align="center">
+    Our Art Gallery Website, built with Laravel in PHP.
+</div>
 
 ## About The Project
 
-LaToile is a web application designed to display and manage an art exhibition in a metro setting. The project was created as part of a university course to practice web development using the Laravel framework.
+LaToile is a web application designed to display and manage an art exhibition in a French metro setting. The project was created as part of a university course to practice web development using the Laravel framework.
 
 ## Built With
 
